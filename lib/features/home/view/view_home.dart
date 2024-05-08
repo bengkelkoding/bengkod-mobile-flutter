@@ -24,7 +24,49 @@ class HomeView extends StatelessWidget {
               children: [
                 Image.asset('assets/image/header_bengkod.png',
                     fit: BoxFit.cover, width: 150),
-                // Add other widgets as needed to match the design in the image
+                Container(
+                  padding: EdgeInsets.all(30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // Teks Hi, Fannan Ganteng dan Ayo Kembangkan bakat kodingmu
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Hi, Fannan Ganteng...',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                          SizedBox(height: 2), // Jarak antara dua teks
+                          Text(
+                            'Ayo Kembangkan bakat kodingmu',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      //
+                      //Circular Avatar
+
+                      Transform.scale(
+                        scale: 1.85,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.grey.shade400,
+                          backgroundImage:
+                              AssetImage("assets/image/profile_picture.png"),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
