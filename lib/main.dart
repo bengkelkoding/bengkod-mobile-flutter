@@ -12,16 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: AppTextFieldForm(
-            TextEditingController(),
-            hintText: "Bakar",
-            func: (value) {},
-            icon: Icon(Icons.abc),
-            obscureText: false,
-            text: "Broo",
-          ),
-        ),
+        body: Center(child: Image.asset("assets/image/logo.png")),
       ),
     );
   }
