@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Color primary = Color.fromRGBO(17, 77, 145, 100);
-Color secondary = Color.fromRGBO(3, 2, 107, 100);
-Color bg_button_assignment = Color.fromRGBO(228, 94, 94, 100);
-Color text_status_notcompleted = Color.fromRGBO(255, 0, 0, 100);
-Color text_status_completed = Color.fromRGBO(56, 149, 23, 100);
-Color bg_card_courses = Color.fromRGBO(17, 77, 145, 31);
+class AppColor {
+  static Color primaryColor = Color(0xFF114D91);
+  static Color secondPrimaryColor = Color(0xFFE45E5E);
+  static Color greenColor = Color(0xFF389517);
+  static Color redColor = Color(0xFFDB2626);
+  static Color whiteColor = Colors.white;
+  static Color blackColor = Colors.black;
+}
