@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
           onTap: () {},
           child: Container(
             decoration: BoxDecoration(
-              color: primary,
+              color: AppColor.primaryColor,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
