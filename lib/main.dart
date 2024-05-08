@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: Scaffold(
+        body: Center(
+          child: Text("Helloo World"),
+        ),
+      ),
     );
   }
 }
