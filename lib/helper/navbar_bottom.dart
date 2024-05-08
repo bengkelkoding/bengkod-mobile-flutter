@@ -17,13 +17,14 @@ class NavbarBottom extends StatelessWidget {
         ],
       ),
       child: BottomNavigationBar(
-        selectedItemColor: Theme.of(context).primaryColor, // Warna primer untuk item terpilih
-        unselectedItemColor: Colors.black, // Warna hitam untuk item yang tidak terpilih
+        selectedItemColor:
+            Theme.of(context).primaryColor, // Warna primer untuk item terpilih
+        unselectedItemColor:
+            Colors.black, // Warna hitam untuk item yang tidak terpilih
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/icon/home.svg'),
+            icon: SvgPicture.asset('assets/icon/icon_home.svg'),
             label: 'Beranda',
-            
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset('assets/icon/icon_classroom.svg'),

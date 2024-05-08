@@ -1,13 +1,11 @@
-import 'dart:ffi';
-
 import 'package:bengkel_koding_mobile/features/home/view/view_home.dart';
+import 'package:bengkel_koding_mobile/helper/app_button.dart';
 import 'package:bengkel_koding_mobile/helper/app_text_field_form.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -39,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 "Bengkel Koding",
                 style: AppTextStyle.textStyle(
+                  color: AppColor.secondPrimaryColor,
                   size: 20,
                   fontWeight: FontWeight.w600,
                 ),
@@ -49,43 +48,58 @@ class _LoginPageState extends State<LoginPage> {
                   hintText: "Masukan Username",
                   obscureText: false,
                   text: "Username",
-                  icon: "assets/icon/user.svg"),
+                  icon: "assets/icon/icon_user.svg"),
               SizedBox(height: 10),
-              AppTextFieldForm(TextEditingController(),
-                  func: (value) {},
-                  hintText: "Masukan Password",
-                  obscureText: true,
-                  text: "Password",
-                  icon: "assets/icon/password.svg"),
-              SizedBox(height: 40),
-              Container(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeView(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColor.primaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
+              AppTextFieldForm(
+                TextEditingController(),
+                func: (value) {},
+                hintText: "Masukan Password",
+                obscureText: true,
+                text: "Password",
+                icon: "assets/icon/icon_password.svg",
+              ),
+              SizedBox(height: 13),
+              GestureDetector(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text(
-                    "Masuk",
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                    "Lupa kata sandi?",
+                    style: AppTextStyle.textStyle(
+                      color: AppColor.secondPrimaryColor,
+                      size: 14,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
               ),
+              SizedBox(
+                height: 40,
+              ),
+              GestureDetector(
+                onTap: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeView(),
+                  ),
+                ),
+                child: AppButton(
+                  color: AppColor.primaryColor,
+                  content: Text(
+                    "Masuk",
+                    style: AppTextStyle.textStyle(
+                      size: 20,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.whiteColor,
+                    ),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 4,
+                        offset: Offset(0, 4),
+                        color: AppColor.blackColor.withOpacity(0.25)),
+                  ],
+                ),
+              )
             ],
           ),
         ),
