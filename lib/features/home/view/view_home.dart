@@ -1,3 +1,4 @@
+import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
@@ -120,6 +121,25 @@ class HomeView extends StatelessWidget {
                       CustomCourseCard(),
                       CustomCourseCard(),
                     ],
+                  ),
+                ),
+                Text(
+                  "Penugasan Terbaru",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                SizedBox(height: 15),
+                Container(
+                  height: MediaQueryHeight * 0.23,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return CustomAssignmentCard();
+                    },
+                    itemCount: 1,
                   ),
                 ),
               ],

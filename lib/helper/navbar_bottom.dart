@@ -13,7 +13,8 @@ class NavbarBottom extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.9), // Opasitas warna bayangan
+              color: const Color.fromARGB(255, 0, 0, 0)
+                  .withOpacity(0.9), // Opasitas warna bayangan
               offset: Offset(0, -4),
               blurRadius: 10, // Tingkat kabur bayangan
               spreadRadius: 2, // Menentukan seberapa jauh bayangan menyebar
