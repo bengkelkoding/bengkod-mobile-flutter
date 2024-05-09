@@ -1,3 +1,4 @@
 {
-  "java.configuration.updateBuildConfiguration": "disabled"
+  "java.configuration.updateBuildConfiguration": "disabled",
+  "cmake.sourceDirectory": "E:/KULIAH/BENGKEL KODING ACADEMY/Project/bengkel_koding_mobile/windows/runner"
 }
