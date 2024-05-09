@@ -78,7 +78,7 @@ class HomeView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(5),
                 child: Text(
                   'Kursus Yang Sedang dikerjakan',
                   style: AppTextStyle.textStyle(
@@ -90,7 +90,7 @@ class HomeView extends StatelessWidget {
               ),
               Expanded(
                 child: ListView(
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.all(10),
                   children: [
                     CustomCourseCard(),
                     CustomCourseCard(),
