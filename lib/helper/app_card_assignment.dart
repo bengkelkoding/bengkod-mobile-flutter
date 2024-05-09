@@ -44,6 +44,7 @@ class CustomAssignmentCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 12,
                           color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
