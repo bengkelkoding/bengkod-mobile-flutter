@@ -1,3 +1,4 @@
+import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,7 +14,8 @@ class NavbarBottom extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.9), // Opasitas warna bayangan
+              color: AppColor.blackColor
+                  .withOpacity(0.20), // Opasitas warna bayangan
               offset: Offset(0, -4),
               blurRadius: 10, // Tingkat kabur bayangan
               spreadRadius: 2, // Menentukan seberapa jauh bayangan menyebar
