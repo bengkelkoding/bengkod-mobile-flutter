@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQueryHeight * 0.20),
+          preferredSize: Size.fromHeight(MediaQueryHeight * 0.18),
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.primaryColor,
