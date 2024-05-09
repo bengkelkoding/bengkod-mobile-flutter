@@ -1,4 +1,5 @@
 import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
+import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
@@ -125,6 +126,24 @@ class HomeView extends StatelessWidget {
                 AppCardYourCourse(),
                 SizedBox(height: 15),
                 Text(
+                  "Mentor Bengkel Koding",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                Container(
+                  height: MediaQueryHeight * 0.23,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return AppCardMentor();
+                    },
+                    itemCount: 8,
+                  ),
+                ),
+                Text(
                   'Kursus Yang Sedang dikerjakan',
                   style: AppTextStyle.textStyle(
                     size: 18,
@@ -132,7 +151,7 @@ class HomeView extends StatelessWidget {
                     color: AppColor.blackColor,
                   ),
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Container(
                   height: MediaQueryHeight * 0.35,
                   child: ListView(
