@@ -24,7 +24,7 @@ class CustomAssignmentCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              flex: 4, // Mengatur bagian kiri menjadi lebih lebar
+              flex: 4,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -106,8 +106,7 @@ class CustomAssignmentCard extends StatelessWidget {
                     width: 150,
                     decoration: BoxDecoration(
                       color: AppColor.primaryColor,
-                      borderRadius: BorderRadius.circular(
-                          10), // Menambahkan border radius 4
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
                       child: Text(

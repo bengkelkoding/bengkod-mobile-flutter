@@ -14,16 +14,15 @@ class NavbarBottom extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: AppColor.blackColor
-                  .withOpacity(0.20), // Opasitas warna bayangan
+              color: AppColor.blackColor.withOpacity(0.20),
               offset: Offset(0, -4),
-              blurRadius: 10, // Tingkat kabur bayangan
-              spreadRadius: 2, // Menentukan seberapa jauh bayangan menyebar
+              blurRadius: 10,
+              spreadRadius: 2,
             ),
           ],
         ),
         child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed, // Tambahkan ini
+          type: BottomNavigationBarType.fixed,
           selectedItemColor: Theme.of(context).primaryColor,
           unselectedItemColor: Colors.black,
           items: [
