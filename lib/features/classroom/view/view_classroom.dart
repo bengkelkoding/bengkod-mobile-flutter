@@ -84,24 +84,26 @@ class ClassView extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Container(child: AppCardYourCourse()),
-            ),
-            Container(
-              width: MediaQueryWidth,
-              height: MediaQueryHeight,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
-                color: AppColor.primaryColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Container(child: AppCardYourCourse()),
               ),
-            )
-          ],
+              Container(
+                width: MediaQueryWidth,
+                height: MediaQueryHeight,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                  color: AppColor.primaryColor,
+                ),
+              )
+            ],
+          ),
         ),
         bottomNavigationBar: NavbarBottom(),
       ),
