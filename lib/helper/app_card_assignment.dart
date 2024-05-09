@@ -76,7 +76,11 @@ class CustomAssignmentCard extends StatelessWidget {
                     onPressed: () {},
                     child: Text(
                       'Lihat Selengkapnya',
-                      style: TextStyle(color: AppColor.whiteColor),
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          color: AppColor.whiteColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16),
                     ),
                   ),
                 ],
