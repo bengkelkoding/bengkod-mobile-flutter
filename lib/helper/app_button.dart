@@ -1,3 +1,4 @@
+import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:flutter/material.dart';
 
 Widget AppButton({
@@ -10,8 +11,8 @@ Widget AppButton({
     height: 47,
     width: double.infinity,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(18),
-      color: color == null ? Colors.black : color,
+      borderRadius: BorderRadius.circular(10),
+      color: color == null ? AppColor.primaryColor : color,
       boxShadow: boxShadow,
       border: border,
     ),

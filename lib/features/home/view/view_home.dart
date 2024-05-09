@@ -8,6 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../../helper/app_card_your_courses.dart';
+
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,11 @@ class HomeView extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Image.asset('assets/image/header_bengkod.png',
-                    fit: BoxFit.cover, width: 150),
+                Image.asset(
+                  'assets/image/header_bengkod.png',
+                  fit: BoxFit.cover,
+                  width: 150,
+                ),
                 Container(
                   padding: EdgeInsets.all(30),
                   child: Row(
@@ -50,17 +55,20 @@ class HomeView extends StatelessWidget {
                                 )),
                           ),
                           SizedBox(height: 2), // Jarak antara dua teks
-                          Text('Ayo Kembangkan bakat kodingmu',
-                              style: AppTextStyle.textStyle(
-                                  size: 14,
-                                  color: AppColor.whiteColor,
-                                  fontWeight: FontWeight.w300)),
+                          Text(
+                            'Ayo Kembangkan bakat kodingmu',
+                            style: AppTextStyle.textStyle(
+                              size: 12,
+                              color: AppColor.whiteColor,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
                         ],
                       ),
                       GestureDetector(
                         onTap: () {},
                         child: Transform.scale(
-                          scale: 1.85,
+                          scale: 1.80,
                           child: CircleAvatar(
                             backgroundColor: Colors.grey.shade400,
                             backgroundImage:
@@ -104,6 +112,17 @@ class HomeView extends StatelessWidget {
                     itemCount: 3,
                   ),
                 ),
+                SizedBox(height: 15),
+                Text(
+                  "Kursus Yang Kamu Ikuti",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                SizedBox(height: 15),
+                AppCardYourCourse(),
                 SizedBox(height: 15),
                 Text(
                   'Kursus Yang Sedang dikerjakan',

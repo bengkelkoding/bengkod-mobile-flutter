@@ -8,7 +8,6 @@ class AppWeCardCourses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryWidth = MediaQuery.of(context).size.width;
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 7, horizontal: 7),
@@ -42,6 +41,7 @@ class AppWeCardCourses extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 5),
           Text(
             "Mobile Developer",
             style: AppTextStyle.textStyle(
