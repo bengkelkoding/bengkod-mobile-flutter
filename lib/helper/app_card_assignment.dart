@@ -4,11 +4,11 @@ import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 class CustomAssignmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double MediaQueryWidth = MediaQuery.of(context).size.width;
+    final double mediaQueryWidth = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 7, horizontal: 7),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
         color: AppColor.whiteColor,
         boxShadow: [
           BoxShadow(
@@ -19,12 +19,12 @@ class CustomAssignmentCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(14),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              flex: 3,
+              flex: 4, // Mengatur bagian kiri menjadi lebih lebar
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -48,7 +48,7 @@ class CustomAssignmentCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 7),
                   Text(
                     'Quiz ini ditujukan untuk mengukur pemahaman\nmahasiswa  terkait modul mobile Bengkel Koding... ',
                     style: TextStyle(
@@ -56,20 +56,20 @@ class CustomAssignmentCard extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 2),
                   Text(
                     'Belum Upload',
                     style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 17,
                         color: Colors.red,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 2),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.primaryColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(5),
                       ),
                     ),
                     onPressed: () {},
@@ -83,7 +83,7 @@ class CustomAssignmentCard extends StatelessWidget {
             ),
             SizedBox(width: 10),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -105,14 +105,16 @@ class CustomAssignmentCard extends StatelessWidget {
                     width: 150,
                     decoration: BoxDecoration(
                       color: AppColor.primaryColor,
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: BorderRadius.circular(
+                          10), // Menambahkan border radius 4
                     ),
                     child: Center(
                       child: Text(
                         '90',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 70,
                           color: AppColor.whiteColor,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
