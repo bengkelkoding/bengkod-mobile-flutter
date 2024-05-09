@@ -1,4 +1,5 @@
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
+import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,6 @@ class HomeView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        // Teks Hi, Fannan Ganteng dan Ayo Kembangkan bakat kodingmu
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -71,8 +71,34 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ),
-        body: Center(
-          child: Text('Ini adalah halaman beranda'),
+        body: Padding(
+          padding: EdgeInsets.all(8.5),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  'Kursus Yang Sedang dikerjakan',
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.all(15),
+                  children: [
+                    CustomCourseCard(),
+                    CustomCourseCard(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         bottomNavigationBar: NavbarBottom(),
       ),
