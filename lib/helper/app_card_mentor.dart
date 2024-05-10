@@ -11,14 +11,14 @@ class AppCardMentor extends StatelessWidget {
       child: Column(
         children: <Widget>[
           const CircleAvatar(
-            radius: 50,
+            radius: 35,
             backgroundImage: AssetImage("assets/image/mentor.jpeg"),
           ),
           const SizedBox(height: 10),
           Text(
             'Azizi',
             style: AppTextStyle.textStyle(
-              size: 20,
+              size: 15,
               fontWeight: FontWeight.bold,
             ),
           ),

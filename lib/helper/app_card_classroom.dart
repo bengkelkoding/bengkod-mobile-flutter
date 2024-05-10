@@ -37,7 +37,7 @@ class CustomClassroomCard extends StatelessWidget {
                       Text(
                         'BENGKEL KODING - M01',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           color: AppColor.whiteColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -46,7 +46,7 @@ class CustomClassroomCard extends StatelessWidget {
                       Text(
                         'Dicourse ini kita akan belajar\nMobile Developer menggunakan Flutter. ',
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 10,
                           color: AppColor.whiteColor,
                         ),
                       ),
@@ -68,7 +68,7 @@ class CustomClassroomCard extends StatelessWidget {
                               Text(
                                 'Hari  : Jumat',
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 10,
                                   color: AppColor.whiteColor,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -76,7 +76,7 @@ class CustomClassroomCard extends StatelessWidget {
                               Text(
                                 'Jam : 13.00 -14.10',
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 10,
                                   color: AppColor.whiteColor,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -99,7 +99,7 @@ class CustomClassroomCard extends StatelessWidget {
                           Text(
                             'Ruangan : H.6.2',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 10,
                               color: AppColor.whiteColor,
                               fontWeight: FontWeight.w400,
                             ),
@@ -121,16 +121,16 @@ class CustomClassroomCard extends StatelessWidget {
                           'Nilai Akhir',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 15,
                             color: AppColor.whiteColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 2),
+                      const SizedBox(height: 5),
                       Container(
-                        height: 100,
-                        width: 150,
+                        height: 85,
+                        width: 130,
                         decoration: BoxDecoration(
                           color: AppColor.whiteColor,
                           borderRadius: BorderRadius.circular(10),
@@ -139,7 +139,7 @@ class CustomClassroomCard extends StatelessWidget {
                           child: Text(
                             '90',
                             style: TextStyle(
-                              fontSize: 70,
+                              fontSize: 40,
                               color: AppColor.primaryColor,
                               fontWeight: FontWeight.bold,
                             ),

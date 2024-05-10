@@ -36,7 +36,7 @@ class CustomAssignmentCard extends StatelessWidget {
                       Text(
                         'Studi Kasus',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 17,
                           color: AppColor.blackColor,
                           fontWeight: FontWeight.bold,
                         ),

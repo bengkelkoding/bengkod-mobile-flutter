@@ -101,7 +101,7 @@ class HomeView extends StatelessWidget {
                 Text(
                   "Kursus Kami",
                   style: AppTextStyle.textStyle(
-                    size: 18,
+                    size: 20,
                     fontWeight: FontWeight.w600,
                     color: AppColor.blackColor,
                   ),
@@ -121,7 +121,7 @@ class HomeView extends StatelessWidget {
                 Text(
                   "Kursus Yang Kamu Ikuti",
                   style: AppTextStyle.textStyle(
-                    size: 18,
+                    size: 20,
                     fontWeight: FontWeight.w600,
                     color: AppColor.blackColor,
                   ),
@@ -135,13 +135,14 @@ class HomeView extends StatelessWidget {
                 Text(
                   "Mentor Bengkel Koding",
                   style: AppTextStyle.textStyle(
-                    size: 18,
+                    size: 20,
                     fontWeight: FontWeight.w600,
                     color: AppColor.blackColor,
                   ),
                 ),
+                const SizedBox(height: 15),
                 SizedBox(
-                  height: MediaQueryHeight * 0.23,
+                  height: MediaQueryHeight * 0.18,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
@@ -153,14 +154,14 @@ class HomeView extends StatelessWidget {
                 Text(
                   'Kursus Yang Sedang dikerjakan',
                   style: AppTextStyle.textStyle(
-                    size: 18,
+                    size: 19,
                     fontWeight: FontWeight.w600,
                     color: AppColor.blackColor,
                   ),
                 ),
                 const SizedBox(height: 15),
                 SizedBox(
-                  height: MediaQueryHeight * 0.35,
+                  height: MediaQueryHeight * 0.34,
                   child: ListView(
                     children: const [
                       CustomCourseCard(),
@@ -172,8 +173,8 @@ class HomeView extends StatelessWidget {
                 Text(
                   "Penugasan Terbaru",
                   style: AppTextStyle.textStyle(
-                    size: 18,
-                    fontWeight: FontWeight.bold,
+                    size: 20,
+                    fontWeight: FontWeight.w600,
                     color: AppColor.blackColor,
                   ),
                 ),
@@ -191,6 +192,7 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(height: 15),
               ],
             ),
           ),
