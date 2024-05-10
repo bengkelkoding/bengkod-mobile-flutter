@@ -7,9 +7,6 @@ class ListViewLecture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryHeight = MediaQuery.of(context).size.height;
-    // ignore: non_constant_identifier_names
-    final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(

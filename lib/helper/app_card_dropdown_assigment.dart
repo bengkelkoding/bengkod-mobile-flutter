@@ -58,6 +58,7 @@ class _AppCardDropdownState extends State<AppCardDropdown> {
                       ),
                       Expanded(
                         child: ListView.builder(
+                          padding: const EdgeInsets.only(top: 0),
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true, // Set shrinkWrap to true
                           itemBuilder: (context, index) =>
