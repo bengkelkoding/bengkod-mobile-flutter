@@ -9,7 +9,6 @@ class ClassView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
@@ -82,46 +81,43 @@ class ClassView extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Positioned(
-                top: MediaQueryHeight * 0.5,
-                bottom: 10,
-                right: 10,
-                left: 10,
-                child: Container(
-                  height: 37,
-                  decoration: BoxDecoration(
-                    color: AppColor.primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: const Offset(0, 4),
-                          color: AppColor.blackColor.withOpacity(0.25),
-                          blurRadius: 4),
-                    ],
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Kelas",
-                      style: AppTextStyle.textStyle(
-                        size: 20,
-                        fontWeight: FontWeight.w600,
-                        color: AppColor.whiteColor,
-                      ),
+              Container(
+                height: 37,
+                decoration: BoxDecoration(
+                  color: AppColor.primaryColor,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                        offset: const Offset(0, 4),
+                        color: AppColor.blackColor.withOpacity(0.25),
+                        blurRadius: 4),
+                  ],
+                ),
+                child: Center(
+                  child: Text(
+                    "Kelas",
+                    style: AppTextStyle.textStyle(
+                      size: 20,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.whiteColor,
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 10),
-              const Expanded(
+              Expanded(
                 child: SingleChildScrollView(
-                  physics:
-                      AlwaysScrollableScrollPhysics(), // Membuat singleChildScrollView tetap dapat di-scroll
-                  child: Column(
-                    children: [
-                      CustomClassroomCard(),
-                      CustomClassroomCard(),
-                    ],
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
+                      return const CustomClassroomCard();
+                    },
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 5),
                   ),
                 ),
               ),

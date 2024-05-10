@@ -246,7 +246,7 @@ class ClassStrukturView extends StatelessWidget {
                           const SizedBox(height: 10),
                           Container(
                               width: MediaQueryWidth,
-                              height: 300,
+                              height: 280,
                               decoration: BoxDecoration(
                                 color: AppColor.whiteColor,
                                 borderRadius: BorderRadius.circular(10),
