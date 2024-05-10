@@ -13,7 +13,7 @@ class AppCardYourCourse extends StatelessWidget {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
-      onTap: () => context.go("/classroom"),
+      onTap: () => context.push("/classroom"),
       child: Stack(
         children: [
           Container(
