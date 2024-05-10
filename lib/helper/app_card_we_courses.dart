@@ -10,7 +10,7 @@ class AppWeCardCourses extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 7, horizontal: 7),
+      margin: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
       width: 160,
       decoration: BoxDecoration(
         color: AppColor.whiteColor,
@@ -36,7 +36,7 @@ class AppWeCardCourses extends StatelessWidget {
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(5), topRight: Radius.circular(5)),
               child: Image.asset(
-                "assets/image/image_course2.png",
+                "assets/image/image_course3.png",
                 fit: BoxFit.cover,
               ),
             ),

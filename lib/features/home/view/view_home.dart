@@ -125,24 +125,24 @@ class HomeView extends StatelessWidget {
                 SizedBox(height: 15),
                 AppCardYourCourse(),
                 SizedBox(height: 15),
-                Text(
-                  "Mentor Bengkel Koding",
-                  style: AppTextStyle.textStyle(
-                    size: 18,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.blackColor,
-                  ),
-                ),
-                Container(
-                  height: MediaQueryHeight * 0.23,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return AppCardMentor();
-                    },
-                    itemCount: 8,
-                  ),
-                ),
+                // Text(
+                //   "Mentor Bengkel Koding",
+                //   style: AppTextStyle.textStyle(
+                //     size: 18,
+                //     fontWeight: FontWeight.w600,
+                //     color: AppColor.blackColor,
+                //   ),
+                // ),
+                // Container(
+                //   height: MediaQueryHeight * 0.23,
+                //   child: ListView.builder(
+                //     scrollDirection: Axis.horizontal,
+                //     itemBuilder: (context, index) {
+                //       return AppCardMentor();
+                //     },
+                //     itemCount: 8,
+                //   ),
+                // ),
                 Text(
                   'Kursus Yang Sedang dikerjakan',
                   style: AppTextStyle.textStyle(

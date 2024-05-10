@@ -1,4 +1,3 @@
-import 'package:bengkel_koding_mobile/features/home/view/view_home.dart';
 import 'package:bengkel_koding_mobile/helper/app_button.dart';
 import 'package:bengkel_koding_mobile/helper/app_text_field_form.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
@@ -6,6 +5,7 @@ import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -76,12 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 40,
               ),
               GestureDetector(
-                onTap: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomeView(),
-                  ),
-                ),
+                onTap: () => context.pushReplacement("/home"),
                 child: AppButton(
                   color: AppColor.primaryColor,
                   content: Text(

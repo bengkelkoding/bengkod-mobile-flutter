@@ -1,6 +1,7 @@
 import 'package:bengkel_koding_mobile/features/classroom/view/view_classroom.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../utils/app_colors_palette.dart';
 import '../utils/app_font_styles.dart';
@@ -13,12 +14,7 @@ class AppCardYourCourse extends StatelessWidget {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
-      onTap: () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ClassView(),
-        ),
-      ),
+      onTap: () => context.go("/classroom"),
       child: Stack(
         children: [
           Container(
@@ -30,13 +26,13 @@ class AppCardYourCourse extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                "assets/image/image_course1.png",
+                "assets/image/image_course3.png",
                 fit: BoxFit.cover,
               ),
             ),
           ),
           Positioned(
-            top: MediaQueryHeight * 0.13,
+            top: MediaQueryHeight * 0.14,
             bottom: 10,
             right: 10,
             left: 10,
@@ -55,7 +51,7 @@ class AppCardYourCourse extends StatelessWidget {
                 child: Text(
                   "Mobile Developer",
                   style: AppTextStyle.textStyle(
-                    size: 24,
+                    size: 20,
                     fontWeight: FontWeight.w600,
                     color: AppColor.whiteColor,
                   ),

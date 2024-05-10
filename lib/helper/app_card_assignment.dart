@@ -1,10 +1,10 @@
+import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 
 class CustomAssignmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double mediaQueryWidth = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 7, horizontal: 7),
       decoration: BoxDecoration(
@@ -41,11 +41,13 @@ class CustomAssignmentCard extends StatelessWidget {
                       SizedBox(width: 5),
                       Text(
                         'Tersisa 2 Jam lagi',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: AppColor.primaryColor,
+                        style: AppTextStyle.textStyle(
+                          size: 12,
                           fontWeight: FontWeight.bold,
+                          color: AppColor.primaryColor,
                         ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
