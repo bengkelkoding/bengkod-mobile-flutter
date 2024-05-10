@@ -22,7 +22,7 @@ class _AssignmentViewState extends State<AssignmentView> {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQueryHeight * 0.18),
+          preferredSize: Size.fromHeight(MediaQueryHeight * 0.20),
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.primaryColor,

@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQueryHeight * 0.18),
+          preferredSize: Size.fromHeight(MediaQueryHeight * 0.20),
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.primaryColor,
@@ -89,7 +89,7 @@ class HomeView extends StatelessWidget {
         body: Container(
           padding: const EdgeInsets.all(10),
           width: MediaQueryWidth,
-          height: MediaQueryHeight * 0.80,
+          height: MediaQueryHeight,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
@@ -155,7 +155,7 @@ class HomeView extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 Container(
-                  height: MediaQueryHeight * 0.30,
+                  height: MediaQueryHeight * 0.35,
                   child: ListView(
                     children: [
                       CustomCourseCard(),
@@ -176,7 +176,7 @@ class HomeView extends StatelessWidget {
                 GestureDetector(
                   onTap: () => context.go("/assignment"),
                   child: Container(
-                    height: MediaQueryHeight * 0.23,
+                    height: MediaQueryHeight * 0.25,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {

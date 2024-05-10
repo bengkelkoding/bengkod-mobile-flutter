@@ -11,7 +11,7 @@ class ClassView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQueryHeight * 0.18),
+          preferredSize: Size.fromHeight(MediaQueryHeight * 0.20),
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.primaryColor,

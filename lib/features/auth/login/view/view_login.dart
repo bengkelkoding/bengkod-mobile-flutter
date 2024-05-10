@@ -94,7 +94,10 @@ class _LoginPageState extends State<LoginPage> {
                         color: AppColor.blackColor.withOpacity(0.25)),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),
