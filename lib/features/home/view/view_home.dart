@@ -175,7 +175,7 @@ class HomeView extends StatelessWidget {
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
-                  onTap: () => context.go("/assignment"),
+                  onTap: () => context.push("/assignment"),
                   child: Container(
                     height: MediaQueryHeight * 0.25,
                     child: ListView.builder(
