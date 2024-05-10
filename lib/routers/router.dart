@@ -1,4 +1,5 @@
 import 'package:bengkel_koding_mobile/features/auth/login/view/view_login.dart';
+import 'package:bengkel_koding_mobile/features/classroom_modul_dashboard/view/view_modul_dashboard.dart';
 import 'package:bengkel_koding_mobile/features/classroom_struktur/view/view_classroom_struktur.dart';
 import 'package:bengkel_koding_mobile/features/home/view/view_home.dart';
 import 'package:go_router/go_router.dart';
@@ -35,6 +36,12 @@ final GoRouter router = GoRouter(
           path: 'assignment',
           builder: (context, state) {
             return const AssignmentView();
+          },
+        ),
+        GoRoute(
+          path: 'moduldashboard',
+          builder: (context, state) {
+            return const ClassModulDashboard();
           },
         ),
       ],
