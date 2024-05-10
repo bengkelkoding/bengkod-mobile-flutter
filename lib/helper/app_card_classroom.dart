@@ -2,17 +2,13 @@ import 'package:bengkel_koding_mobile/features/classroom_struktur/view/view_clas
 import 'package:flutter/material.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomClassroomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ClassStrukturView(),
-        ),
-      ),
+      onTap: () => context.go("/strukturclassroom"),
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
         child: Container(
@@ -47,7 +43,7 @@ class CustomClassroomCard extends StatelessWidget {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        'Dicourse ini kita akan belajar \nMobile Developer menggunakan Flutter. ',
+                        'Dicourse ini kita akan belajar\nMobile Developer menggunakan Flutter. ',
                         style: TextStyle(
                           fontSize: 12,
                           color: AppColor.whiteColor,
@@ -134,7 +130,7 @@ class CustomClassroomCard extends StatelessWidget {
                       ),
                       SizedBox(height: 2),
                       Container(
-                        height: 120,
+                        height: 100,
                         width: 150,
                         decoration: BoxDecoration(
                           color: AppColor.whiteColor,

@@ -2,6 +2,7 @@ import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
+import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
@@ -127,24 +128,24 @@ class HomeView extends StatelessWidget {
                 const SizedBox(height: 15),
                 AppCardYourCourse(),
                 const SizedBox(height: 15),
-                // Text(
-                //   "Mentor Bengkel Koding",
-                //   style: AppTextStyle.textStyle(
-                //     size: 18,
-                //     fontWeight: FontWeight.w600,
-                //     color: AppColor.blackColor,
-                //   ),
-                // ),
-                // Container(
-                //   height: MediaQueryHeight * 0.23,
-                //   child: ListView.builder(
-                //     scrollDirection: Axis.horizontal,
-                //     itemBuilder: (context, index) {
-                //       return AppCardMentor();
-                //     },
-                //     itemCount: 8,
-                //   ),
-                // ),
+                Text(
+                  "Mentor Bengkel Koding",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                Container(
+                  height: MediaQueryHeight * 0.23,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return AppCardMentor();
+                    },
+                    itemCount: 8,
+                  ),
+                ),
                 Text(
                   'Kursus Yang Sedang dikerjakan',
                   style: AppTextStyle.textStyle(
