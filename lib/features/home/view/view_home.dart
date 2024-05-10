@@ -78,8 +78,9 @@ class HomeView extends StatelessWidget {
                     color: AppColor.blackColor,
                   ),
                 ),
+                const SizedBox(height: 15),
                 SizedBox(
-                  height: MediaQueryHeight * 0.23,
+                  height: MediaQueryHeight * 0.18,
                   child: ListView.builder(
                     padding: const EdgeInsets.only(top: 0),
                     scrollDirection: Axis.horizontal,
@@ -98,14 +99,17 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
-                SizedBox(
-                  height: MediaQueryHeight * 0.35,
-                  child: ListView(
-                    padding: const EdgeInsets.only(top: 0),
-                    children: const [
-                      CustomCourseCard(),
-                      CustomCourseCard(),
-                    ],
+                GestureDetector(
+                  onTap: () => context.push("/moduldashboard"),
+                  child: SizedBox(
+                    height: MediaQueryHeight * 0.35,
+                    child: ListView(
+                      padding: const EdgeInsets.only(top: 0),
+                      children: const [
+                        CustomCourseCard(),
+                        CustomCourseCard(),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 15),

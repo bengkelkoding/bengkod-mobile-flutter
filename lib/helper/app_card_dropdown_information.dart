@@ -26,7 +26,7 @@ class _AppCardInformationState extends State<AppCardInformation> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-        height: _isExpanded ? null : 120,
+        height: _isExpanded ? null : 140,
         decoration: BoxDecoration(
           color: AppColor.whiteColor,
           borderRadius: BorderRadius.circular(8),

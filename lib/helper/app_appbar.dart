@@ -32,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               width: 150,
             ),
             Container(
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.all(25),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -67,9 +67,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: Transform.scale(
                       scale: 1.80,
                       child: CircleAvatar(
+                        radius: 21,
                         backgroundColor: Colors.grey.shade400,
-                        backgroundImage: const AssetImage(
-                            "assets/image/profile_picture.png"),
+                        child: const CircleAvatar(
+                          radius: 19, // Adjust radius to accommodate border
+                          backgroundImage: const AssetImage(
+                              "assets/image/profile_picture.png"),
+                        ),
                       ),
                     ),
                   ),
