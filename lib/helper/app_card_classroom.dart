@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 class CustomClassroomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double mediaQueryWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () => Navigator.pushReplacement(
         context,

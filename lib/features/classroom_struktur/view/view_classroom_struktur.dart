@@ -1,8 +1,4 @@
-import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/cupertino.dart';

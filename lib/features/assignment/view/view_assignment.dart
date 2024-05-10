@@ -95,6 +95,7 @@ class _AssignmentViewState extends State<AssignmentView> {
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   AppButton(
                     height: 37,
@@ -107,9 +108,18 @@ class _AssignmentViewState extends State<AssignmentView> {
                     ),
                   ),
                   SizedBox(height: 20),
-                  AppCardDropdown(),
-                  SizedBox(height: 20),
-                  AppCardDropdown()
+                  Flexible(
+                    child: ListView.separated(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: 2,
+                      itemBuilder: (context, index) {
+                        return AppCardDropdown();
+                      },
+                      separatorBuilder: (context, index) =>
+                          SizedBox(height: 20),
+                    ),
+                  ),
                 ],
               ),
             ),

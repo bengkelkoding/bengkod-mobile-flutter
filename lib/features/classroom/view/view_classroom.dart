@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class ClassView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final MediaQueryWidth = MediaQuery.of(context).size.width;
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
