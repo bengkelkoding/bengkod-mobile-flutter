@@ -1,16 +1,8 @@
-import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_classroom.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-import '../../../helper/app_card_your_courses.dart';
 
 class ClassView extends StatelessWidget {
   @override
@@ -95,6 +87,7 @@ class ClassView extends StatelessWidget {
                 right: 10,
                 left: 10,
                 child: Container(
+                  height: 37,
                   decoration: BoxDecoration(
                     color: AppColor.primaryColor,
                     borderRadius: BorderRadius.circular(10),
@@ -109,7 +102,7 @@ class ClassView extends StatelessWidget {
                     child: Text(
                       "Kelas",
                       style: AppTextStyle.textStyle(
-                        size: 27,
+                        size: 20,
                         fontWeight: FontWeight.w600,
                         color: AppColor.whiteColor,
                       ),

@@ -1,20 +1,22 @@
 import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../helper/app_card_your_courses.dart';
 
 class HomeView extends StatelessWidget {
+  const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
+    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
@@ -23,7 +25,7 @@ class HomeView extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.primaryColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
               ),
@@ -36,7 +38,7 @@ class HomeView extends StatelessWidget {
                   width: 150,
                 ),
                 Container(
-                  padding: EdgeInsets.all(30),
+                  padding: const EdgeInsets.all(30),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,7 +57,7 @@ class HomeView extends StatelessWidget {
                                   color: AppColor.whiteColor,
                                 )),
                           ),
-                          SizedBox(height: 2), // Jarak antara dua teks
+                          const SizedBox(height: 2), // Jarak antara dua teks
                           Text(
                             'Ayo Kembangkan bakat kodingmu',
                             style: AppTextStyle.textStyle(
@@ -72,8 +74,8 @@ class HomeView extends StatelessWidget {
                           scale: 1.80,
                           child: CircleAvatar(
                             backgroundColor: Colors.grey.shade400,
-                            backgroundImage:
-                                AssetImage("assets/image/profile_picture.png"),
+                            backgroundImage: const AssetImage(
+                                "assets/image/profile_picture.png"),
                           ),
                         ),
                       ),
@@ -85,7 +87,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
         body: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           width: MediaQueryWidth,
           height: MediaQueryHeight * 0.80,
           child: SingleChildScrollView(
@@ -102,7 +104,7 @@ class HomeView extends StatelessWidget {
                     color: AppColor.blackColor,
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Container(
                   height: MediaQueryHeight * 0.23,
                   child: ListView.builder(
@@ -113,7 +115,7 @@ class HomeView extends StatelessWidget {
                     itemCount: 3,
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text(
                   "Kursus Yang Kamu Ikuti",
                   style: AppTextStyle.textStyle(
@@ -122,9 +124,9 @@ class HomeView extends StatelessWidget {
                     color: AppColor.blackColor,
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 AppCardYourCourse(),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 // Text(
                 //   "Mentor Bengkel Koding",
                 //   style: AppTextStyle.textStyle(
@@ -151,9 +153,9 @@ class HomeView extends StatelessWidget {
                     color: AppColor.blackColor,
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 15),
                 Container(
-                  height: MediaQueryHeight * 0.35,
+                  height: MediaQueryHeight * 0.30,
                   child: ListView(
                     children: [
                       CustomCourseCard(),
@@ -161,6 +163,7 @@ class HomeView extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 15),
                 Text(
                   "Penugasan Terbaru",
                   style: AppTextStyle.textStyle(
@@ -169,15 +172,18 @@ class HomeView extends StatelessWidget {
                     color: AppColor.blackColor,
                   ),
                 ),
-                SizedBox(height: 15),
-                Container(
-                  height: MediaQueryHeight * 0.23,
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return CustomAssignmentCard();
-                    },
-                    itemCount: 1,
+                const SizedBox(height: 15),
+                GestureDetector(
+                  onTap: () => context.go("/assignment"),
+                  child: Container(
+                    height: MediaQueryHeight * 0.23,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        return CustomAssignmentCard();
+                      },
+                      itemCount: 1,
+                    ),
                   ),
                 ),
               ],
