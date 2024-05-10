@@ -1,5 +1,4 @@
 import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_classroom.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
@@ -12,7 +11,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../../helper/app_card_your_courses.dart';
 
-class ClassView extends StatelessWidget {
+class ClassStrukturView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final MediaQueryWidth = MediaQuery.of(context).size.width;
@@ -85,51 +84,62 @@ class ClassView extends StatelessWidget {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
+        body: SingleChildScrollView(
           child: Column(
             children: [
-              Positioned(
-                top: MediaQueryHeight * 0.5,
-                bottom: 10,
-                right: 10,
-                left: 10,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColor.primaryColor,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(0, 4),
-                          color: AppColor.blackColor.withOpacity(0.25),
-                          blurRadius: 4),
-                    ],
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Container(child: AppCardYourCourse()),
+              ),
+              Container(
+                width: MediaQueryWidth,
+                height: MediaQueryHeight,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
-                  child: Center(
-                    child: Text(
-                      "Kelas",
-                      style: AppTextStyle.textStyle(
-                        size: 27,
-                        fontWeight: FontWeight.w600,
-                        color: AppColor.whiteColor,
-                      ),
+                  color: AppColor.primaryColor,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(9.0),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.whiteColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text('Modul Kelas',
+                              style: AppTextStyle.textStyle(
+                                  size: 12,
+                                  color: AppColor.primaryColor,
+                                  fontWeight: FontWeight.bold))),
                     ),
-                  ),
+                    Padding(
+                      padding: const EdgeInsets.all(9.0),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.whiteColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(7),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text('Struktur Kelas',
+                              style: AppTextStyle.textStyle(
+                                  size: 12,
+                                  color: AppColor.primaryColor,
+                                  fontWeight: FontWeight.bold))),
+                    )
+                  ],
                 ),
-              ),
-              SizedBox(height: 10),
-              Expanded(
-                child: SingleChildScrollView(
-                  physics:
-                      AlwaysScrollableScrollPhysics(), // Membuat singleChildScrollView tetap dapat di-scroll
-                  child: Column(
-                    children: [
-                      CustomClassroomCard(),
-                      CustomClassroomCard(),
-                    ],
-                  ),
-                ),
-              ),
+              )
             ],
           ),
         ),
