@@ -36,7 +36,7 @@ class CustomAssignmentCard extends StatelessWidget {
                       Text(
                         'Studi Kasus',
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 15,
                           color: AppColor.blackColor,
                           fontWeight: FontWeight.bold,
                         ),
@@ -109,7 +109,7 @@ class CustomAssignmentCard extends StatelessWidget {
                       'Nilai',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16,
                         color: AppColor.blackColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -117,8 +117,8 @@ class CustomAssignmentCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Container(
-                    height: 95,
-                    width: 120,
+                    height: 90,
+                    width: 110,
                     decoration: BoxDecoration(
                       color: AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(10),
@@ -127,7 +127,7 @@ class CustomAssignmentCard extends StatelessWidget {
                       child: Text(
                         '90',
                         style: TextStyle(
-                          fontSize: 50,
+                          fontSize: 40,
                           color: AppColor.whiteColor,
                           fontWeight: FontWeight.bold,
                         ),

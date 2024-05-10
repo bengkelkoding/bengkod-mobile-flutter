@@ -7,41 +7,47 @@ class ListViewStudent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MediaQueryHeight = MediaQuery.of(context).size.height;
+    // ignore: non_constant_identifier_names
+    final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           CircleAvatar(
-            radius: 25,
+            radius: 23,
             backgroundColor:
                 AppColor.secondPrimaryColor, // Set background color
             child: const CircleAvatar(
-              radius: 23, // Adjust radius to accommodate border
+              radius: 21, // Adjust radius to accommodate border
               backgroundImage: AssetImage("assets/image/mentor.jpeg"),
             ),
           ),
-          const SizedBox(width: 20),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Nadine Abigail Cokrowanitos',
-                style: AppTextStyle.textStyle(
-                  size: 15,
-                  fontWeight: FontWeight.bold,
+          const SizedBox(width: 10),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Nadine Abigail Cokrowanito',
+                  style: AppTextStyle.textStyle(
+                    size: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                'A11.2023.13459',
-                style: AppTextStyle.textStyle(
-                  size: 15,
-                  fontWeight: FontWeight.w400,
+                Text(
+                  'A11.2021.13459',
+                  style: AppTextStyle.textStyle(
+                    size: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

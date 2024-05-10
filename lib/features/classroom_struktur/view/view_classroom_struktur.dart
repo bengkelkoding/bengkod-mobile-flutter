@@ -246,7 +246,7 @@ class ClassStrukturView extends StatelessWidget {
                           const SizedBox(height: 10),
                           Container(
                               width: MediaQueryWidth,
-                              height: 280,
+                              height: 250,
                               decoration: BoxDecoration(
                                 color: AppColor.whiteColor,
                                 borderRadius: BorderRadius.circular(10),
@@ -266,7 +266,7 @@ class ClassStrukturView extends StatelessWidget {
                                   itemBuilder: (context, index) {
                                     return const ListViewStudent();
                                   },
-                                  itemCount: 5,
+                                  itemCount: 4,
                                 ),
                               ))
                         ],

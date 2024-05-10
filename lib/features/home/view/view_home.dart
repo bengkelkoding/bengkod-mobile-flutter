@@ -59,7 +59,7 @@ class HomeView extends StatelessWidget {
                                   color: AppColor.whiteColor,
                                 )),
                           ),
-                          const SizedBox(height: 2), // Jarak antara dua teks
+                          const SizedBox(height: 2), 
                           Text(
                             'Ayo Kembangkan bakat kodingmu',
                             style: AppTextStyle.textStyle(

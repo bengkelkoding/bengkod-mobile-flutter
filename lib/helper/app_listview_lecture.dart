@@ -7,41 +7,47 @@ class ListViewLecture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MediaQueryHeight = MediaQuery.of(context).size.height;
+    // ignore: non_constant_identifier_names
+    final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           CircleAvatar(
-            radius: 25,
+            radius: 23,
             backgroundColor:
                 AppColor.secondPrimaryColor, // Set background color
             child: const CircleAvatar(
-              radius: 23, // Adjust radius to accommodate border
+              radius: 21, // Adjust radius to accommodate border
               backgroundImage: AssetImage("assets/image/mentor.jpeg"),
             ),
           ),
-          const SizedBox(width: 20),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Fahri Firdausillah, S.Kom, M.Cs',
-                style: AppTextStyle.textStyle(
-                  size: 15,
-                  fontWeight: FontWeight.bold,
+          const SizedBox(width: 10),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Fahri Firdausillah, S.Kom, M.Cs',
+                  style: AppTextStyle.textStyle(
+                    size: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                'Dosen Pengampu',
-                style: AppTextStyle.textStyle(
-                  size: 15,
-                  fontWeight: FontWeight.w400,
+                Text(
+                  'Dosen Pengampu',
+                  style: AppTextStyle.textStyle(
+                    size: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
