@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_lecture.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_student.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
@@ -18,73 +19,10 @@ class ClassStrukturView extends StatelessWidget {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(MediaQueryHeight * 0.18),
-          child: Container(
-            decoration: BoxDecoration(
-              color: AppColor.primaryColor,
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-            ),
-            child: Column(
-              children: [
-                Image.asset(
-                  'assets/image/header_bengkod.png',
-                  fit: BoxFit.cover,
-                  width: 150,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: MediaQueryHeight * 0.35,
-                            child: Text('Hi, Fannan Gantengckcokcokc',
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                style: AppTextStyle.textStyle(
-                                  size: 24,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColor.whiteColor,
-                                )),
-                          ),
-                          const SizedBox(height: 2), // Jarak antara dua teks
-                          Text(
-                            'Ayo Kembangkan bakat kodingmu',
-                            style: AppTextStyle.textStyle(
-                              size: 12,
-                              color: AppColor.whiteColor,
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                        ],
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Transform.scale(
-                          scale: 1.80,
-                          child: CircleAvatar(
-                            backgroundColor: Colors.grey.shade400,
-                            backgroundImage: const AssetImage(
-                                "assets/image/profile_picture.png"),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
+        extendBodyBehindAppBar: true,
+        appBar: const CustomAppBar(),
         body: SingleChildScrollView(
+          padding: EdgeInsets.only(top: MediaQueryHeight * 0.18),
           child: Column(
             children: [
               const Padding(
@@ -210,30 +148,32 @@ class ClassStrukturView extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           Container(
-                              width: MediaQueryWidth,
-                              height: 280,
-                              decoration: BoxDecoration(
-                                color: AppColor.whiteColor,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    offset: const Offset(0, 2),
-                                    color:
-                                        AppColor.blackColor.withOpacity(0.25),
-                                    blurRadius: 4,
-                                  ),
-                                ],
-                              ),
-                              child: SizedBox(
-                                height: MediaQueryHeight * 0.23,
-                                child: ListView.builder(
-                                  scrollDirection: Axis.vertical,
-                                  itemBuilder: (context, index) {
-                                    return const ListViewLecture();
-                                  },
-                                  itemCount: 4,
+                            width: MediaQueryWidth,
+                            height: 280,
+                            decoration: BoxDecoration(
+                              color: AppColor.whiteColor,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  offset: const Offset(0, 2),
+                                  color: AppColor.blackColor.withOpacity(0.25),
+                                  blurRadius: 4,
                                 ),
-                              )),
+                              ],
+                            ),
+                            child: Container(
+                              width: double.infinity,
+                              height: double.infinity,
+                              child: ListView.builder(
+                                padding: const EdgeInsets.only(top: 0),
+                                scrollDirection: Axis.vertical,
+                                itemBuilder: (context, index) {
+                                  return const ListViewStudent();
+                                },
+                                itemCount: 5,
+                              ),
+                            ),
+                          ),
                           const SizedBox(height: 10),
                           Text(
                             "Anggota Kelas - M01",
@@ -245,30 +185,28 @@ class ClassStrukturView extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           Container(
-                              width: MediaQueryWidth,
-                              height: 250,
-                              decoration: BoxDecoration(
-                                color: AppColor.whiteColor,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    offset: const Offset(0, 2),
-                                    color:
-                                        AppColor.blackColor.withOpacity(0.25),
-                                    blurRadius: 4,
-                                  ),
-                                ],
-                              ),
-                              child: SizedBox(
-                                height: MediaQueryHeight * 0.23,
-                                child: ListView.builder(
-                                  scrollDirection: Axis.vertical,
-                                  itemBuilder: (context, index) {
-                                    return const ListViewStudent();
-                                  },
-                                  itemCount: 4,
+                            width: MediaQueryWidth,
+                            height: 280,
+                            decoration: BoxDecoration(
+                              color: AppColor.whiteColor,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  offset: const Offset(0, 2),
+                                  color: AppColor.blackColor.withOpacity(0.25),
+                                  blurRadius: 4,
                                 ),
-                              ))
+                              ],
+                            ),
+                            child: ListView.builder(
+                              padding: const EdgeInsets.only(top: 0),
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (context, index) {
+                                return const ListViewStudent();
+                              },
+                              itemCount: 5,
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -283,3 +221,6 @@ class ClassStrukturView extends StatelessWidget {
     );
   }
 }
+
+
+//
