@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 
 class CustomCourseCard extends StatelessWidget {
+  const CustomCourseCard({super.key});
+
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 7),
+      margin: const EdgeInsets.symmetric(vertical: 7),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Color.fromRGBO(17, 77, 145, 0.31),
+        color: const Color.fromRGBO(17, 77, 145, 0.31),
         border: Border.all(
           color: AppColor.secondPrimaryColor,
           width: 2,
@@ -18,14 +21,14 @@ class CustomCourseCard extends StatelessWidget {
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Image.asset(
               'assets/image/image_course1.png',
               width: 100,
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -37,7 +40,7 @@ class CustomCourseCard extends StatelessWidget {
                     color: AppColor.secondPrimaryColor,
                   ),
                 ),
-                Text(
+                const Text(
                   'Flutter adalah framework yang....',
                   style: TextStyle(
                     fontSize: 10,
@@ -54,14 +57,14 @@ class CustomCourseCard extends StatelessWidget {
                         color: AppColor.blackColor,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Stack(
                       children: [
                         Container(
                           height: 10,
                           width: MediaQueryWidth * 0.5, // Lebar progress bar
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(
+                            color: const Color.fromRGBO(
                                 217, 217, 217, 1), // Warna sisa progress
                             borderRadius: BorderRadius.circular(10),
                           ),

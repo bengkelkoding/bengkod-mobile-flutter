@@ -1,6 +1,5 @@
 import 'package:bengkel_koding_mobile/helper/app_button.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_dropdown_assigment.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../helper/navbar_bottom.dart';
@@ -17,7 +16,9 @@ class AssignmentView extends StatefulWidget {
 class _AssignmentViewState extends State<AssignmentView> {
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
+    // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
@@ -26,7 +27,7 @@ class _AssignmentViewState extends State<AssignmentView> {
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.primaryColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
               ),
@@ -39,7 +40,7 @@ class _AssignmentViewState extends State<AssignmentView> {
                   width: 150,
                 ),
                 Container(
-                  padding: EdgeInsets.all(30),
+                  padding: const EdgeInsets.all(30),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,7 +48,7 @@ class _AssignmentViewState extends State<AssignmentView> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                             width: MediaQueryHeight * 0.35,
                             child: Text('Hi, Fannan Gantengckcokcokc',
                                 overflow: TextOverflow.ellipsis,
@@ -58,7 +59,7 @@ class _AssignmentViewState extends State<AssignmentView> {
                                   color: AppColor.whiteColor,
                                 )),
                           ),
-                          SizedBox(height: 2), // Jarak antara dua teks
+                          const SizedBox(height: 2), // Jarak antara dua teks
                           Text(
                             'Ayo Kembangkan bakat kodingmu',
                             style: AppTextStyle.textStyle(
@@ -75,8 +76,8 @@ class _AssignmentViewState extends State<AssignmentView> {
                           scale: 1.80,
                           child: CircleAvatar(
                             backgroundColor: Colors.grey.shade400,
-                            backgroundImage:
-                                AssetImage("assets/image/profile_picture.png"),
+                            backgroundImage: const AssetImage(
+                                "assets/image/profile_picture.png"),
                           ),
                         ),
                       ),
@@ -89,7 +90,7 @@ class _AssignmentViewState extends State<AssignmentView> {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          child: Container(
+          child: SizedBox(
             height: MediaQueryHeight,
             width: MediaQueryWidth,
             child: SingleChildScrollView(
@@ -107,17 +108,17 @@ class _AssignmentViewState extends State<AssignmentView> {
                           color: AppColor.whiteColor),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Flexible(
                     child: ListView.separated(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: 2,
                       itemBuilder: (context, index) {
-                        return AppCardDropdown();
+                        return const AppCardDropdown();
                       },
                       separatorBuilder: (context, index) =>
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                     ),
                   ),
                 ],
@@ -125,7 +126,7 @@ class _AssignmentViewState extends State<AssignmentView> {
             ),
           ),
         ),
-        bottomNavigationBar: NavbarBottom(),
+        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }

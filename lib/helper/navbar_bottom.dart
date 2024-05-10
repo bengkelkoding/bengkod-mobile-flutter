@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class NavbarBottom extends StatelessWidget {
+  const NavbarBottom({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(27),
         topRight: Radius.circular(27),
       ),
@@ -15,7 +17,7 @@ class NavbarBottom extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: AppColor.blackColor.withOpacity(0.20),
-              offset: Offset(0, -4),
+              offset: const Offset(0, -4),
               blurRadius: 10,
               spreadRadius: 2,
             ),

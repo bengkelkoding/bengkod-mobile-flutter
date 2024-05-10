@@ -2,19 +2,19 @@ import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 
 class AppCardMentor extends StatelessWidget {
-  const AppCardMentor({Key? key}) : super(key: key);
+  const AppCardMentor({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 7),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 7),
       child: Column(
         children: <Widget>[
-          CircleAvatar(
+          const CircleAvatar(
             radius: 50,
             backgroundImage: AssetImage("assets/image/mentor.jpeg"),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             'Azizi',
             style: AppTextStyle.textStyle(

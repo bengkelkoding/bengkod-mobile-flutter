@@ -8,16 +8,17 @@ class AppWeCardCourses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+      margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
       width: 160,
       decoration: BoxDecoration(
         color: AppColor.whiteColor,
         borderRadius: BorderRadius.circular(5),
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
             color: AppColor.blackColor.withOpacity(0.25),
             blurRadius: 4,
           ),
@@ -33,7 +34,7 @@ class AppWeCardCourses extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(5), topRight: Radius.circular(5)),
               child: Image.asset(
                 "assets/image/image_course3.png",
@@ -41,7 +42,7 @@ class AppWeCardCourses extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Text(
             "Mobile Developer",
             style: AppTextStyle.textStyle(
@@ -49,8 +50,8 @@ class AppWeCardCourses extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(height: 8),
-          Container(
+          const SizedBox(height: 8),
+          SizedBox(
             height: MediaQueryHeight * 0.05,
             width: 120,
             child: Column(

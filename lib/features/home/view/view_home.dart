@@ -6,6 +6,7 @@ import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../helper/app_card_your_courses.dart';
@@ -47,7 +48,7 @@ class HomeView extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                             width: MediaQueryHeight * 0.35,
                             child: Text('Hi, Fannan Gantengckcokcokc',
                                 overflow: TextOverflow.ellipsis,
@@ -106,12 +107,12 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
-                Container(
+                SizedBox(
                   height: MediaQueryHeight * 0.23,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return AppWeCardCourses();
+                      return const AppWeCardCourses();
                     },
                     itemCount: 3,
                   ),
@@ -126,7 +127,10 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
-                AppCardYourCourse(),
+                GestureDetector(
+                  onTap: () => context.push("/classroom"),
+                  child: const AppCardYourCourse(),
+                ),
                 const SizedBox(height: 15),
                 Text(
                   "Mentor Bengkel Koding",
@@ -136,12 +140,12 @@ class HomeView extends StatelessWidget {
                     color: AppColor.blackColor,
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: MediaQueryHeight * 0.23,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return AppCardMentor();
+                      return const AppCardMentor();
                     },
                     itemCount: 8,
                   ),
@@ -155,10 +159,10 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 15),
-                Container(
+                SizedBox(
                   height: MediaQueryHeight * 0.35,
                   child: ListView(
-                    children: [
+                    children: const [
                       CustomCourseCard(),
                       CustomCourseCard(),
                     ],
@@ -176,12 +180,12 @@ class HomeView extends StatelessWidget {
                 const SizedBox(height: 15),
                 GestureDetector(
                   onTap: () => context.push("/assignment"),
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQueryHeight * 0.25,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
-                        return CustomAssignmentCard();
+                        return const CustomAssignmentCard();
                       },
                       itemCount: 1,
                     ),
@@ -191,7 +195,7 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: NavbarBottom(),
+        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }

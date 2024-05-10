@@ -3,7 +3,6 @@ import 'package:bengkel_koding_mobile/helper/app_text_field_form.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         alignment: Alignment.center,
         width: MediaQuery.of(context).size.width,
-        margin: EdgeInsets.symmetric(horizontal: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 20),
         height: double.infinity,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -29,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 111,
                 height: 123,
                 child: SvgPicture.asset("assets/icon/logo_bengkod.svg"),
@@ -42,14 +41,14 @@ class _LoginPageState extends State<LoginPage> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(height: 42),
+              const SizedBox(height: 42),
               AppTextFieldForm(TextEditingController(),
                   func: (value) {},
                   hintText: "Masukan Username",
                   obscureText: false,
                   text: "Username",
                   icon: "assets/icon/icon_user.svg"),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               AppTextFieldForm(
                 TextEditingController(),
                 func: (value) {},
@@ -58,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                 text: "Password",
                 icon: "assets/icon/icon_password.svg",
               ),
-              SizedBox(height: 13),
+              const SizedBox(height: 13),
               GestureDetector(
                 child: Align(
                   alignment: Alignment.centerLeft,
@@ -72,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               GestureDetector(
@@ -90,12 +89,12 @@ class _LoginPageState extends State<LoginPage> {
                   boxShadow: [
                     BoxShadow(
                         blurRadius: 4,
-                        offset: Offset(0, 4),
+                        offset: const Offset(0, 4),
                         color: AppColor.blackColor.withOpacity(0.25)),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
             ],

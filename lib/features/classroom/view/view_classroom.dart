@@ -5,8 +5,11 @@ import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 
 class ClassView extends StatelessWidget {
+  const ClassView({super.key});
+
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
@@ -15,7 +18,7 @@ class ClassView extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: AppColor.primaryColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),
               ),
@@ -28,7 +31,7 @@ class ClassView extends StatelessWidget {
                   width: 150,
                 ),
                 Container(
-                  padding: EdgeInsets.all(30),
+                  padding: const EdgeInsets.all(30),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,7 +39,7 @@ class ClassView extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                             width: MediaQueryHeight * 0.35,
                             child: Text('Hi, Fannan Gantengckcokcokc',
                                 overflow: TextOverflow.ellipsis,
@@ -47,7 +50,7 @@ class ClassView extends StatelessWidget {
                                   color: AppColor.whiteColor,
                                 )),
                           ),
-                          SizedBox(height: 2), // Jarak antara dua teks
+                          const SizedBox(height: 2), // Jarak antara dua teks
                           Text(
                             'Ayo Kembangkan bakat kodingmu',
                             style: AppTextStyle.textStyle(
@@ -64,8 +67,8 @@ class ClassView extends StatelessWidget {
                           scale: 1.80,
                           child: CircleAvatar(
                             backgroundColor: Colors.grey.shade400,
-                            backgroundImage:
-                                AssetImage("assets/image/profile_picture.png"),
+                            backgroundImage: const AssetImage(
+                                "assets/image/profile_picture.png"),
                           ),
                         ),
                       ),
@@ -92,7 +95,7 @@ class ClassView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                           color: AppColor.blackColor.withOpacity(0.25),
                           blurRadius: 4),
                     ],
@@ -109,8 +112,8 @@ class ClassView extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              Expanded(
+              const SizedBox(height: 10),
+              const Expanded(
                 child: SingleChildScrollView(
                   physics:
                       AlwaysScrollableScrollPhysics(), // Membuat singleChildScrollView tetap dapat di-scroll
@@ -125,7 +128,7 @@ class ClassView extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: NavbarBottom(),
+        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }

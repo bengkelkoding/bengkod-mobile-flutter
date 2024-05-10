@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../helper/app_card_assignment.dart';
 
 class AppCardDropdown extends StatefulWidget {
-  const AppCardDropdown({Key? key}) : super(key: key);
+  const AppCardDropdown({super.key});
 
   @override
   State<AppCardDropdown> createState() => _AppCardDropdownState();
@@ -21,6 +21,7 @@ class _AppCardDropdownState extends State<AppCardDropdown> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     const double cardHeight = 175;
     return GestureDetector(
@@ -57,10 +58,10 @@ class _AppCardDropdownState extends State<AppCardDropdown> {
                       ),
                       Expanded(
                         child: ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true, // Set shrinkWrap to true
                           itemBuilder: (context, index) =>
-                              CustomAssignmentCard(),
+                              const CustomAssignmentCard(),
                           itemCount: 4,
                         ),
                       )

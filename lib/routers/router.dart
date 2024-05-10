@@ -16,25 +16,25 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: 'home',
           builder: (context, state) {
-            return HomeView();
+            return const HomeView();
           },
         ),
         GoRoute(
           path: 'classroom',
           builder: (context, state) {
-            return ClassView();
+            return const ClassView();
           },
         ),
         GoRoute(
           path: 'strukturclassroom',
           builder: (context, state) {
-            return ClassStrukturView();
+            return const ClassStrukturView();
           },
         ),
         GoRoute(
           path: 'assignment',
           builder: (context, state) {
-            return AssignmentView();
+            return const AssignmentView();
           },
         ),
       ],

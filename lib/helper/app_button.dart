@@ -1,6 +1,7 @@
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:flutter/material.dart';
 
+// ignore: non_constant_identifier_names
 Widget AppButton({
   Color? color,
   List<BoxShadow>? boxShadow,
@@ -13,7 +14,7 @@ Widget AppButton({
     width: double.infinity,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(10),
-      color: color == null ? AppColor.primaryColor : color,
+      color: color ?? AppColor.primaryColor,
       boxShadow: boxShadow,
       border: border,
     ),

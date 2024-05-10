@@ -1,28 +1,28 @@
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
-import 'package:flutter/widgets.dart';
 
 class CustomAssignmentCard extends StatelessWidget {
+  const CustomAssignmentCard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 160,
-      margin: EdgeInsets.symmetric(vertical: 7, horizontal: 7),
+      margin: const EdgeInsets.symmetric(vertical: 7, horizontal: 7),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: AppColor.whiteColor,
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
             color: AppColor.blackColor.withOpacity(0.25),
             blurRadius: 4,
           ),
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.all(14),
+        padding: const EdgeInsets.all(14),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,7 +41,7 @@ class CustomAssignmentCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Expanded(
                         child: Text(
                           'Tersisa 2 Jam lagi',
@@ -56,28 +56,26 @@ class CustomAssignmentCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 7),
-                  Container(
-                    child: Text(
-                      'Quiz ini ditujukan untuk mengukur pemahaman mahasiswa  terkait modul mobile Bengkel Koding... ',
-                      style: AppTextStyle.textStyle(
-                        size: 10,
-                        fontWeight: FontWeight.w500,
-                        color: AppColor.blackColor.withOpacity(0.40),
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  SizedBox(height: 2),
+                  const SizedBox(height: 7),
                   Text(
+                    'Quiz ini ditujukan untuk mengukur pemahaman mahasiswa  terkait modul mobile Bengkel Koding... ',
+                    style: AppTextStyle.textStyle(
+                      size: 10,
+                      fontWeight: FontWeight.w500,
+                      color: AppColor.blackColor.withOpacity(0.40),
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 2),
+                  const Text(
                     'Belum Upload',
                     style: TextStyle(
                         fontSize: 15,
                         color: Colors.red,
                         fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 2),
+                  const SizedBox(height: 2),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.primaryColor,
@@ -99,7 +97,7 @@ class CustomAssignmentCard extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               flex: 2,
               child: Column(
@@ -117,7 +115,7 @@ class CustomAssignmentCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 2),
+                  const SizedBox(height: 2),
                   Container(
                     height: 95,
                     width: 120,
