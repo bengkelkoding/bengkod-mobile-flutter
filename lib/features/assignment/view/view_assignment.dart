@@ -26,11 +26,9 @@ class _AssignmentViewState extends State<AssignmentView> {
         extendBodyBehindAppBar: true,
         appBar: const CustomAppBar(),
         body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 10,
-          ),
+          padding: const EdgeInsets.only(top: 20),
           child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             height: MediaQueryHeight,
             width: MediaQueryWidth,
             child: SingleChildScrollView(

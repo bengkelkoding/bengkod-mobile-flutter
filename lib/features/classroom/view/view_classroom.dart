@@ -11,7 +11,6 @@ class ClassView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         appBar: const CustomAppBar(),
