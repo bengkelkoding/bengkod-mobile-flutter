@@ -8,8 +8,8 @@ import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 
-class ClassModulDashboard extends StatelessWidget {
-  const ClassModulDashboard({Key? key}) : super(key: key);
+class ClassModulDashboardView extends StatelessWidget {
+  const ClassModulDashboardView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
