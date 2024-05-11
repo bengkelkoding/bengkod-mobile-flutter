@@ -142,7 +142,7 @@ class ClassStrukturView extends StatelessWidget {
                       ),
                       const SizedBox(height: 2),
                       Padding(
-                        padding: const EdgeInsets.all(17),
+                        padding: const EdgeInsets.all(10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
