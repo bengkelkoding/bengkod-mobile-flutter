@@ -7,6 +7,7 @@ import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ClassModulDashboardView extends StatelessWidget {
   const ClassModulDashboardView({Key? key}) : super(key: key);
@@ -122,7 +123,9 @@ class ClassModulDashboardView extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.push("/strukturclassroom");
+                                },
                                 child: Text(
                                   'Struktur Kelas',
                                   style: AppTextStyle.textStyle(
@@ -170,15 +173,18 @@ class ClassModulDashboardView extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 10),
-                            Container(
-                              height: MediaQueryHeight * 0.32,
-                              child: ListView.builder(
-                                padding: const EdgeInsets.only(top: 0),
-                                scrollDirection: Axis.vertical,
-                                itemBuilder: (context, index) {
-                                  return const CustomCourseCard();
-                                },
-                                itemCount: 3,
+                            GestureDetector(
+                              onTap: () => context.push("/modullist"),
+                              child: Container(
+                                height: MediaQueryHeight * 0.32,
+                                child: ListView.builder(
+                                  padding: const EdgeInsets.only(top: 0),
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder: (context, index) {
+                                    return const CustomCourseCard();
+                                  },
+                                  itemCount: 3,
+                                ),
                               ),
                             ),
                           ],

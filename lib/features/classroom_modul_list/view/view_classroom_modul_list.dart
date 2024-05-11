@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
+import 'package:bengkel_koding_mobile/helper/app_listview_course.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_lecture.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_student.dart';
 import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
@@ -40,9 +41,119 @@ class ClassModulListView extends StatelessWidget {
                   ),
                   color: AppColor.primaryColor,
                 ),
-                child: Column(children: [
-                  
-                ]),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 17),
+                  child: Column(children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  return AppColor.whiteColor;
+                                },
+                              ),
+                              overlayColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.hovered) ||
+                                      states.contains(MaterialState.pressed)) {
+                                    return AppColor.whiteColor;
+                                  }
+                                  return AppColor.whiteColor;
+                                },
+                              ),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(7.0),
+                                  side: BorderSide(
+                                    color: AppColor.yellowColor,
+                                    width: 4.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+                              context.push("/moduldashboard");
+                            },
+                            child: Text(
+                              'Modul Kelas',
+                              style: AppTextStyle.textStyle(
+                                size: 12.0,
+                                color: AppColor.primaryColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(9.0),
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  return Colors.white;
+                                },
+                              ),
+                              overlayColor:
+                                  MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.hovered) ||
+                                      states.contains(MaterialState.pressed)) {
+                                    return Colors.transparent;
+                                  }
+                                  return AppColor.yellowColor;
+                                },
+                              ),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(7.0),
+                                  side: BorderSide(
+                                    color: AppColor.yellowColor,
+                                    width: 4.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+                              context.push("/strukturclassroom");
+                            },
+                            child: Text(
+                              'Struktur Kelas',
+                              style: AppTextStyle.textStyle(
+                                size: 12.0,
+                                color: AppColor.primaryColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: SizedBox(
+                          height: MediaQueryHeight * 0.8,
+                          child: ListView.builder(
+                            padding: const EdgeInsets.only(top: 0),
+                            scrollDirection: Axis.vertical,
+                            itemBuilder: (context, index) {
+                              return const ListViewCourse();
+                            },
+                            itemCount: 8,
+                          ),
+                        ))
+                  ]),
+                ),
               ),
             ],
           ),
