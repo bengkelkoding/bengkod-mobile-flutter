@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
+import 'package:bengkel_koding_mobile/helper/app_card_level_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_course.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_lecture.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_student.dart';
@@ -29,7 +30,7 @@ class ClassModulListView extends StatelessWidget {
             children: [
               const Padding(
                 padding: EdgeInsets.all(15),
-                child: AppCardYourCourse(),
+                child: AppWeCardLevelCourses(),
               ),
               Container(
                 width: MediaQueryWidth,
