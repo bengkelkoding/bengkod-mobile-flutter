@@ -26,7 +26,7 @@ class _AssignmentViewState extends State<AssignmentView> {
         extendBodyBehindAppBar: true,
         appBar: const CustomAppBar(),
         body: Padding(
-          padding: const EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 17),
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             height: MediaQueryHeight,
@@ -66,7 +66,6 @@ class _AssignmentViewState extends State<AssignmentView> {
             ),
           ),
         ),
-        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }

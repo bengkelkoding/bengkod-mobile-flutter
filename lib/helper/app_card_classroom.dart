@@ -9,7 +9,7 @@ class CustomClassroomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push("/strukturclassroom"),
+      onTap: () => context.push("/classroom/strukturclassroom"),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
         child: Container(

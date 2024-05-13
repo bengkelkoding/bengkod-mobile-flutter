@@ -3,7 +3,6 @@ import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_dropdown_information.dart';
 
 import 'package:bengkel_koding_mobile/helper/app_card_your_courses.dart';
-import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
@@ -79,7 +78,9 @@ class ClassModulDashboardView extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.push("/classroom/moduldashboard");
+                                },
                                 child: Text(
                                   'Modul Kelas',
                                   style: AppTextStyle.textStyle(
@@ -124,7 +125,7 @@ class ClassModulDashboardView extends StatelessWidget {
                                   ),
                                 ),
                                 onPressed: () {
-                                  context.push("/strukturclassroom");
+                                  context.push("/classroom/strukturclassroom");
                                 },
                                 child: Text(
                                   'Struktur Kelas',
@@ -174,7 +175,7 @@ class ClassModulDashboardView extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             GestureDetector(
-                              onTap: () => context.push("/modullist"),
+                              onTap: () => context.push("/classroom/modullist"),
                               child: Container(
                                 height: MediaQueryHeight * 0.32,
                                 child: ListView.builder(
@@ -197,7 +198,6 @@ class ClassModulDashboardView extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }

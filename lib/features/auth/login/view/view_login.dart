@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../routers/router.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -75,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 40,
               ),
               GestureDetector(
-                onTap: () => context.pushReplacement("/home"),
+                onTap: () => context.go("/home"),
                 child: AppButton(
                   color: AppColor.primaryColor,
                   content: Text(

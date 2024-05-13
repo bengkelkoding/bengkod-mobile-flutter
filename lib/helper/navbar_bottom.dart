@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class NavbarBottom extends StatelessWidget {
-  const NavbarBottom({super.key});
+  final int currentIndex;
+  final Function(int) onTap;
+
+  const NavbarBottom(
+      {super.key, required this.currentIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +18,7 @@ class NavbarBottom extends StatelessWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
+          color: AppColor.whiteColor,
           boxShadow: [
             BoxShadow(
               color: AppColor.blackColor.withOpacity(0.20),
@@ -24,13 +29,16 @@ class NavbarBottom extends StatelessWidget {
           ],
         ),
         child: BottomNavigationBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Theme.of(context).primaryColor,
           unselectedItemColor: Colors.black,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/icon/icon_home_hover.svg'),
-              label: 'Beranda',
+              label: "Beranda",
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset('assets/icon/icon_classroom.svg'),
@@ -40,11 +48,12 @@ class NavbarBottom extends StatelessWidget {
               icon: SvgPicture.asset('assets/icon/icon_assigment.svg'),
               label: 'Tugas',
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/icon/icon_profile.svg'),
-              label: 'Profile',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset('assets/icon/icon_profile.svg'),
+            //   label: 'Profile',
+            // ),
           ],
+          onTap: onTap,
         ),
       ),
     );

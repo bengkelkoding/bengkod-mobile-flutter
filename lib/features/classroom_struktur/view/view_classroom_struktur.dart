@@ -82,7 +82,7 @@ class ClassStrukturView extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () {
-                                context.push("/moduldashboard");
+                                context.push("/classroom/moduldashboard");
                               },
                               child: Text(
                                 'Modul Kelas',
@@ -127,7 +127,9 @@ class ClassStrukturView extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                context.push("/classroom/strukturclassroom");
+                              },
                               child: Text(
                                 'Struktur Kelas',
                                 style: AppTextStyle.textStyle(
@@ -193,31 +195,32 @@ class ClassStrukturView extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             Container(
-                                width: MediaQueryWidth,
-                                height: 250,
-                                decoration: BoxDecoration(
-                                  color: AppColor.whiteColor,
-                                  borderRadius: BorderRadius.circular(10),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      offset: const Offset(0, 2),
-                                      color:
-                                          AppColor.blackColor.withOpacity(0.25),
-                                      blurRadius: 4,
-                                    ),
-                                  ],
-                                ),
-                                child: SizedBox(
-                                  height: MediaQueryHeight * 0.23,
-                                  child: ListView.builder(
-                                    padding: const EdgeInsets.only(top: 0),
-                                    scrollDirection: Axis.vertical,
-                                    itemBuilder: (context, index) {
-                                      return const ListViewStudent();
-                                    },
-                                    itemCount: 4,
+                              width: MediaQueryWidth,
+                              height: 250,
+                              decoration: BoxDecoration(
+                                color: AppColor.whiteColor,
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    offset: const Offset(0, 2),
+                                    color:
+                                        AppColor.blackColor.withOpacity(0.25),
+                                    blurRadius: 4,
                                   ),
-                                ))
+                                ],
+                              ),
+                              child: SizedBox(
+                                height: MediaQueryHeight * 0.23,
+                                child: ListView.builder(
+                                  padding: const EdgeInsets.only(top: 0),
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder: (context, index) {
+                                    return const ListViewStudent();
+                                  },
+                                  itemCount: 4,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -228,7 +231,6 @@ class ClassStrukturView extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }

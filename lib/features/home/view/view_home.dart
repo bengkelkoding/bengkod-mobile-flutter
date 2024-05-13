@@ -67,7 +67,7 @@ class HomeView extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   GestureDetector(
-                    onTap: () => context.push("/classroom"),
+                    onTap: () => context.go("/classroom"),
                     child: const AppCardYourCourse(),
                   ),
                   const SizedBox(height: 15),
@@ -101,7 +101,7 @@ class HomeView extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   GestureDetector(
-                    onTap: () => context.push("/moduldashboard"),
+                    onTap: () => context.go("/classroom/moduldashboard"),
                     child: SizedBox(
                       height: MediaQueryHeight * 0.35,
                       child: ListView(
@@ -124,7 +124,7 @@ class HomeView extends StatelessWidget {
                   ),
                   const SizedBox(height: 15),
                   GestureDetector(
-                    onTap: () => context.push("/assignment"),
+                    onTap: () => context.go("/assignment"),
                     child: SizedBox(
                       height: MediaQueryHeight * 0.25,
                       child: ListView.builder(
@@ -142,7 +142,6 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAssignmentCard extends StatelessWidget {
   const CustomAssignmentCard({super.key});
@@ -83,7 +84,9 @@ class CustomAssignmentCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push("/assignment/assignment_detail");
+                    },
                     child: Text(
                       'Lihat Selengkapnya',
                       textAlign: TextAlign.start,

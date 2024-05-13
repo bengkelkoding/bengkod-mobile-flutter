@@ -60,7 +60,6 @@ class ClassView extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const NavbarBottom(),
       ),
     );
   }
