@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors_palette.dart';
@@ -9,7 +11,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return PreferredSize(
-      preferredSize: Size.fromHeight(134),
+      preferredSize: const Size.fromHeight(134),
       child: Container(
         decoration: BoxDecoration(
             color: AppColor.primaryColor,
@@ -71,8 +73,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         backgroundColor: Colors.grey.shade400,
                         child: const CircleAvatar(
                           radius: 19, // Adjust radius to accommodate border
-                          backgroundImage: const AssetImage(
-                              "assets/image/profile_picture.png"),
+                          backgroundImage:
+                              AssetImage("assets/image/profile_picture.png"),
                         ),
                       ),
                     ),
@@ -87,5 +89,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(134);
+  Size get preferredSize => const Size.fromHeight(134);
 }

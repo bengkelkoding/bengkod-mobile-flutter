@@ -12,7 +12,7 @@ class CustomCourseCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 7),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Color.fromARGB(186, 161, 201, 247),
+        color: const Color.fromARGB(186, 161, 201, 247),
         border: Border.all(
           color: AppColor.secondPrimaryColor,
           width: 2,

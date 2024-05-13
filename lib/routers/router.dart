@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/assignment/view/view_assignment.dart';
+import '../features/assignment_detail/view/view_assignment_detail.dart';
 import '../features/classroom/view/view_classroom.dart';
 import '../features/navigation/view/view_navigation.dart';
 
@@ -92,7 +93,7 @@ final GoRouter router = GoRouter(
                   parentNavigatorKey: assignmentNavigatorKey,
                   path: 'assignment_detail',
                   builder: (context, state) {
-                    return const AssignmentView();
+                    return const AssignmentDetailView();
                   },
                 ),
               ],

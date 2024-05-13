@@ -8,6 +8,7 @@ class AppWeCardLevelCourses extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;

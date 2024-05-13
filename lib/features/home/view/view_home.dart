@@ -1,7 +1,6 @@
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
-import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
@@ -24,121 +23,118 @@ class HomeView extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: const CustomAppBar(),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            width: MediaQueryWidth,
-            height: MediaQueryHeight,
-            child: SingleChildScrollView(
-              padding: EdgeInsets.only(top: MediaQueryHeight * 0.18),
-              scrollDirection: Axis.vertical,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Kursus Kami",
-                    style: AppTextStyle.textStyle(
-                      size: 18,
-                      fontWeight: FontWeight.w600,
-                      color: AppColor.blackColor,
+        body: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          width: MediaQueryWidth,
+          height: MediaQueryHeight,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.only(top: 145),
+            scrollDirection: Axis.vertical,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Kursus Kami",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                SizedBox(
+                  height: MediaQueryHeight * 0.23,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return const AppWeCardCourses();
+                    },
+                    itemCount: 3,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  "Kursus Yang Kamu Ikuti",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  onTap: () => context.go("/classroom"),
+                  child: const AppCardYourCourse(),
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  "Mentor Bengkel Koding",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                SizedBox(
+                  height: MediaQueryHeight * 0.18,
+                  child: ListView.builder(
+                    padding: const EdgeInsets.only(top: 0),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return const AppCardMentor();
+                    },
+                    itemCount: 8,
+                  ),
+                ),
+                Text(
+                  'Kursus Yang Sedang dikerjakan',
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.blackColor,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  onTap: () => context.go("/classroom/moduldashboard"),
+                  child: SizedBox(
+                    height: 250,
+                    child: ListView(
+                      padding: const EdgeInsets.only(top: 0),
+                      children: const [
+                        CustomCourseCard(),
+                        CustomCourseCard(),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 15),
-                  SizedBox(
-                    height: MediaQueryHeight * 0.23,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return const AppWeCardCourses();
-                      },
-                      itemCount: 3,
-                    ),
+                ),
+                const SizedBox(height: 15),
+                Text(
+                  "Penugasan Terbaru",
+                  style: AppTextStyle.textStyle(
+                    size: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.blackColor,
                   ),
-                  const SizedBox(height: 15),
-                  Text(
-                    "Kursus Yang Kamu Ikuti",
-                    style: AppTextStyle.textStyle(
-                      size: 18,
-                      fontWeight: FontWeight.w600,
-                      color: AppColor.blackColor,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  GestureDetector(
-                    onTap: () => context.go("/classroom"),
-                    child: const AppCardYourCourse(),
-                  ),
-                  const SizedBox(height: 15),
-                  Text(
-                    "Mentor Bengkel Koding",
-                    style: AppTextStyle.textStyle(
-                      size: 18,
-                      fontWeight: FontWeight.w600,
-                      color: AppColor.blackColor,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  SizedBox(
-                    height: MediaQueryHeight * 0.18,
+                ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  onTap: () => context.go("/assignment"),
+                  child: SizedBox(
+                    height: MediaQueryHeight * 0.25,
                     child: ListView.builder(
                       padding: const EdgeInsets.only(top: 0),
-                      scrollDirection: Axis.horizontal,
+                      scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
-                        return const AppCardMentor();
+                        return const CustomAssignmentCard();
                       },
-                      itemCount: 8,
+                      itemCount: 1,
                     ),
                   ),
-                  Text(
-                    'Kursus Yang Sedang dikerjakan',
-                    style: AppTextStyle.textStyle(
-                      size: 18,
-                      fontWeight: FontWeight.w600,
-                      color: AppColor.blackColor,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  GestureDetector(
-                    onTap: () => context.go("/classroom/moduldashboard"),
-                    child: SizedBox(
-                      height: MediaQueryHeight * 0.35,
-                      child: ListView(
-                        padding: const EdgeInsets.only(top: 0),
-                        children: const [
-                          CustomCourseCard(),
-                          CustomCourseCard(),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  Text(
-                    "Penugasan Terbaru",
-                    style: AppTextStyle.textStyle(
-                      size: 18,
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.blackColor,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  GestureDetector(
-                    onTap: () => context.go("/assignment"),
-                    child: SizedBox(
-                      height: MediaQueryHeight * 0.25,
-                      child: ListView.builder(
-                        padding: const EdgeInsets.only(top: 0),
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (context, index) {
-                          return const CustomAssignmentCard();
-                        },
-                        itemCount: 1,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

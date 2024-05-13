@@ -9,22 +9,24 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class ClassModulDashboardView extends StatelessWidget {
-  const ClassModulDashboardView({Key? key}) : super(key: key);
+  const ClassModulDashboardView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
+    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: const CustomAppBar(),
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(top: MediaQueryHeight * 0.18),
+          padding: const EdgeInsets.only(top: 135),
           child: Column(
             children: [
               const Padding(
-                padding: EdgeInsets.all(15),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: AppCardYourCourse(),
               ),
               SizedBox(
@@ -162,7 +164,7 @@ class ClassModulDashboardView extends StatelessWidget {
                                 return const AppCardInformation();
                               },
                               separatorBuilder: (context, index) =>
-                                  const SizedBox(height: 20),
+                                  const Divider(),
                             ),
                             const SizedBox(height: 10),
                             Text(
@@ -175,8 +177,9 @@ class ClassModulDashboardView extends StatelessWidget {
                             ),
                             const SizedBox(height: 10),
                             GestureDetector(
-                              onTap: () => context.push("/classroom/modullist"),
-                              child: Container(
+                              onTap: () => context
+                                  .push("/classroom/moduldashboard/modullist"),
+                              child: SizedBox(
                                 height: MediaQueryHeight * 0.32,
                                 child: ListView.builder(
                                   padding: const EdgeInsets.only(top: 0),

@@ -85,7 +85,7 @@ class CustomAssignmentCard extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      context.push("/assignment/assignment_detail");
+                      context.go("/assignment/assignment_detail");
                     },
                     child: Text(
                       'Lihat Selengkapnya',

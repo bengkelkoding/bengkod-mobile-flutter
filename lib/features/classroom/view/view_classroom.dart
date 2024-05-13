@@ -1,5 +1,4 @@
 import 'package:bengkel_koding_mobile/helper/app_card_classroom.dart';
-import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ class ClassView extends StatelessWidget {
       child: Scaffold(
         appBar: const CustomAppBar(),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

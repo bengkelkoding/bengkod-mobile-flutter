@@ -7,9 +7,7 @@ class ListViewCourse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryHeight = MediaQuery.of(context).size.height;
     // ignore: non_constant_identifier_names
-    final MediaQueryWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {},
       child: Container(
@@ -35,7 +33,7 @@ class ListViewCourse extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Padding(
               padding: const EdgeInsets.only(right: 10),
               child: Icon(

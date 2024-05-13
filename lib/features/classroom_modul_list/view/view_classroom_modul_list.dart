@@ -3,15 +3,10 @@
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_level_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_course.dart';
-import 'package:bengkel_koding_mobile/helper/app_listview_lecture.dart';
-import 'package:bengkel_koding_mobile/helper/app_listview_student.dart';
-import 'package:bengkel_koding_mobile/helper/navbar_bottom.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../helper/app_card_your_courses.dart';
 
 class ClassModulListView extends StatelessWidget {
   const ClassModulListView({super.key});
@@ -155,7 +150,7 @@ class ClassModulListView extends StatelessWidget {
                             itemBuilder: (context, index) {
                               return const ListViewCourse();
                             },
-                            itemCount: 8,
+                            itemCount: 20,
                           ),
                         ),
                       ),
