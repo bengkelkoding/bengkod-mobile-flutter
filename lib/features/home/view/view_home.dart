@@ -1,8 +1,8 @@
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_we_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
+import 'package:bengkel_koding_mobile/helper/app_card_our_courses.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class HomeView extends StatelessWidget {
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return const AppWeCardCourses();
+                      return const AppOurCardCourses();
                     },
                     itemCount: 3,
                   ),
