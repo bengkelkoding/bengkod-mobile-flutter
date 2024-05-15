@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors_palette.dart';
 import '../utils/app_font_styles.dart';
 
-class AppWeCardCourses extends StatelessWidget {
-  const AppWeCardCourses({super.key});
+class AppOurCardCourses extends StatelessWidget {
+  const AppOurCardCourses({super.key});
 
   @override
   Widget build(BuildContext context) {
