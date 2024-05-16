@@ -1,4 +1,5 @@
 import 'package:bengkel_koding_mobile/features/auth/login/view/view_login.dart';
+import 'package:bengkel_koding_mobile/features/classroom_detail_modul/view/view_classroom_detail_modul.dart';
 import 'package:bengkel_koding_mobile/features/classroom_modul_dashboard/view/view_modul_dashboard.dart';
 import 'package:bengkel_koding_mobile/features/classroom_modul_list/view/view_classroom_modul_list.dart';
 import 'package:bengkel_koding_mobile/features/classroom_struktur/view/view_classroom_struktur.dart';
@@ -73,6 +74,15 @@ final GoRouter router = GoRouter(
                       builder: (context, state) {
                         return const ClassModulListView();
                       },
+                      routes: <RouteBase>[
+                        GoRoute(
+                          parentNavigatorKey: classroomNavigatorKey,
+                          path: 'detailmodul',
+                          builder: (context, state) {
+                            return const ClassDetailModulView();
+                          },
+                        ),
+                      ],
                     ),
                   ],
                 ),

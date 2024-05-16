@@ -140,20 +140,24 @@ class ClassModulListView extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 2),
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: SizedBox(
-                          height: MediaQueryHeight * 0.8,
-                          child: ListView.builder(
-                            padding: const EdgeInsets.only(top: 0),
-                            scrollDirection: Axis.vertical,
-                            itemBuilder: (context, index) {
-                              return const ListViewCourse();
-                            },
-                            itemCount: 20,
+                      GestureDetector(
+                       onTap: () => context
+                                  .push("/classroom/moduldashboard/modullist/detailmodul"),
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SizedBox(
+                            height: MediaQueryHeight * 0.8,
+                            child: ListView.builder(
+                              padding: const EdgeInsets.only(top: 0),
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (context, index) {
+                                return const ListViewCourse();
+                              },
+                              itemCount: 20,
+                            ),
                           ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),
