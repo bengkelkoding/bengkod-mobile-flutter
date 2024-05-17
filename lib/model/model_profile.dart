@@ -1,11 +1,14 @@
-class Profile{
-  final int userId;
-  final String name;
-  final String nim;
-  final String email;
-  Profile({
-    required this.userId, 
-    required this.name, 
-    required this.nim, 
-    required this.email, });
+class Profile {
+  int? id;
+  String? nim;
+  String? name;
+  String? email;
+
+  Profile({this.id, this.nim, this.name, this.email});
+  Profile.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    nim = json['identity_code'];
+    name = json['name'];
+    email = json['email'];
+  }
 }
