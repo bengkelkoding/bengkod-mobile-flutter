@@ -44,7 +44,7 @@ class _AppCardInformationState extends State<AppCardInformation> {
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) =>
                             const ListViewInformation(),
-                        separatorBuilder: (context, index) => Divider(),
+                        separatorBuilder: (context, index) => const Divider(),
                         itemCount: 5,
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -7,11 +8,19 @@ import '../../../helper/app_button.dart';
 import '../../../utils/app_colors_palette.dart';
 import '../../../utils/app_font_styles.dart';
 
-class AssignmentDetailView extends StatelessWidget {
+class AssignmentDetailView extends StatefulWidget {
   const AssignmentDetailView({super.key});
 
   @override
+  State<AssignmentDetailView> createState() => _AssignmentDetailViewState();
+}
+
+String _result = "Upload File";
+
+class _AssignmentDetailViewState extends State<AssignmentDetailView> {
+  @override
   Widget build(BuildContext context) {
+    FilePickerResult? result;
     // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     // ignore: non_constant_identifier_names
@@ -163,7 +172,7 @@ LINK QUIZ TEST 1 : https://docs.google.com/forms/d/e/1FAIpQLScHV67ltxI_QoHBND0XE
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Text(
                     "Maks 10 mb",
                     style: AppTextStyle.textStyle(
@@ -175,47 +184,78 @@ LINK QUIZ TEST 1 : https://docs.google.com/forms/d/e/1FAIpQLScHV67ltxI_QoHBND0XE
                 ],
               ),
               const SizedBox(height: 7),
-              DottedBorder(
-                color: AppColor.blackColor,
-                strokeWidth: 1.5,
-                dashPattern: const [5, 5],
-                radius: const Radius.circular(10),
-                borderType: BorderType.RRect,
-                strokeCap: StrokeCap.round,
-                child: Container(
-                  height: 90,
-                  width: double.infinity,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        "assets/icon/icon_file_search.svg",
-                        height: 16,
-                        width: 16,
-                      ),
-                      SizedBox(width: 5),
-                      Text(
-                        "Upload File",
-                        style: AppTextStyle.textStyle(
-                          size: 11,
-                          fontWeight: FontWeight.w300,
+              GestureDetector(
+                onTap: () async {
+                  result =
+                      await FilePicker.platform.pickFiles(allowMultiple: true);
+                  setState(() {
+                    _result = result != null
+                        ? result!.files
+                            .map((element) => element.name)
+                            .join(", ")
+                        : "Upload File";
+                  });
+                },
+                child: DottedBorder(
+                  color: AppColor.blackColor,
+                  strokeWidth: 1.5,
+                  dashPattern: const [5, 5],
+                  radius: const Radius.circular(10),
+                  borderType: BorderType.RRect,
+                  strokeCap: StrokeCap.round,
+                  child: SizedBox(
+                    height: 90,
+                    width: double.infinity,
+                    child: Center(
+                      child: SizedBox(
+                        width: 500,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: SvgPicture.asset(
+                                "assets/icon/icon_file_search.svg",
+                                height: 16,
+                                width: 16,
+                              ),
+                            ),
+                            const SizedBox(width: 5),
+                            Flexible(
+                              child: Text(
+                                _result,
+                                style: const TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                                maxLines: 2,
+                                overflow: TextOverflow.clip,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: 30),
-              AppButton(
-                height: 37,
-                color: AppColor.primaryColor,
-                content: Text(
-                  "Submit",
-                  style: AppTextStyle.textStyle(
-                    size: 14,
-                    fontWeight: FontWeight.w500,
-                    color: AppColor.whiteColor,
+              const SizedBox(height: 30),
+              GestureDetector(
+                onTap: () {
+                  // Menampilkan dialog dengan nama file yang sudah dipilih
+                  _showSelectedFilesDialog(context, _result);
+                },
+                child: AppButton(
+                  height: 37,
+                  color: AppColor.primaryColor,
+                  content: Text(
+                    "Submit",
+                    style: AppTextStyle.textStyle(
+                      size: 14,
+                      fontWeight: FontWeight.w500,
+                      color: AppColor.whiteColor,
+                    ),
                   ),
                 ),
               ),
@@ -225,4 +265,24 @@ LINK QUIZ TEST 1 : https://docs.google.com/forms/d/e/1FAIpQLScHV67ltxI_QoHBND0XE
       ),
     );
   }
+}
+
+void _showSelectedFilesDialog(BuildContext context, String selectedFiles) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text("Selected Files"),
+        content: Text(selectedFiles),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("Close"),
+          ),
+        ],
+      );
+    },
+  );
 }

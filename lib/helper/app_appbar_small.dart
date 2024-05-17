@@ -10,10 +10,10 @@ class CustomAppBarSmall extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBarSmall({super.key});
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     final MediaQueryHeight = MediaQuery.of(context).size.height;
-    final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 100),
+      margin: const EdgeInsets.symmetric(horizontal: 100),
       decoration: BoxDecoration(
           color: AppColor.primaryColor,
           borderRadius: const BorderRadius.only(
@@ -28,7 +28,7 @@ class CustomAppBarSmall extends StatelessWidget implements PreferredSizeWidget {
             )
           ]),
       child: Container(
-        margin: EdgeInsets.only(right: 15, bottom: 2),
+        margin: const EdgeInsets.only(right: 15, bottom: 2),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
