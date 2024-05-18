@@ -29,6 +29,7 @@ dependencies:
   flutter:
     sdk: flutter
   riverpod: ^2.5.1
+  flutter_riverpod: ^2.0.0
   http: ^1.2.1
   shared_preferences: ^2.2.3
   google_fonts: ^6.2.1

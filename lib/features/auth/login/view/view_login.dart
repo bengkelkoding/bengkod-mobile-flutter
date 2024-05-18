@@ -1,21 +1,30 @@
+// lib/features/auth/login/view/view_login.dart
 import 'package:bengkel_koding_mobile/helper/app_button.dart';
 import 'package:bengkel_koding_mobile/helper/app_text_field_form.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import '../controller/controller_login.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final authState = ref.watch(authProvider);
+    final authController = ref.read(authProvider.notifier);
+
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -42,15 +51,17 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 42),
-              AppTextFieldForm(TextEditingController(),
-                  func: (value) {},
-                  hintText: "Masukan Username",
-                  obscureText: false,
-                  text: "Username",
-                  icon: "assets/icon/icon_user.svg"),
+              AppTextFieldForm(
+                _emailController,
+                func: (value) {},
+                hintText: "Masukan Email",
+                obscureText: false,
+                text: "Email",
+                icon: "assets/icon/icon_user.svg",
+              ),
               const SizedBox(height: 10),
               AppTextFieldForm(
-                TextEditingController(),
+                _passwordController,
                 func: (value) {},
                 hintText: "Masukan Password",
                 obscureText: true,
@@ -71,32 +82,46 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 40,
-              ),
+              const SizedBox(height: 40),
               GestureDetector(
-                onTap: () => context.go("/home"),
+                onTap: () async {
+                  await authController.login(
+                    _emailController.text,
+                    _passwordController.text,
+                  );
+
+                  if (authState.errorMessage != null) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(authState.errorMessage!)),
+                    );
+                  } else if (authState.user != null) {
+                    context.go("/home");
+                  }
+                },
                 child: AppButton(
                   color: AppColor.primaryColor,
-                  content: Text(
-                    "Masuk",
-                    style: AppTextStyle.textStyle(
-                      size: 20,
-                      fontWeight: FontWeight.w600,
-                      color: AppColor.whiteColor,
-                    ),
-                  ),
+                  content: authState.isLoading
+                      ? CircularProgressIndicator(
+                          color: AppColor.whiteColor,
+                        )
+                      : Text(
+                          "Masuk",
+                          style: AppTextStyle.textStyle(
+                            size: 20,
+                            fontWeight: FontWeight.w600,
+                            color: AppColor.whiteColor,
+                          ),
+                        ),
                   boxShadow: [
                     BoxShadow(
-                        blurRadius: 4,
-                        offset: const Offset(0, 4),
-                        color: AppColor.blackColor.withOpacity(0.25)),
+                      blurRadius: 4,
+                      offset: const Offset(0, 4),
+                      color: AppColor.blackColor.withOpacity(0.25),
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 40,
-              ),
+              const SizedBox(height: 40),
             ],
           ),
         ),
