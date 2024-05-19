@@ -1,6 +1,7 @@
 // lib/features/auth/login/view/view_login.dart
 import 'package:bengkel_koding_mobile/helper/app_button.dart';
 import 'package:bengkel_koding_mobile/helper/app_text_field_form.dart';
+import 'package:bengkel_koding_mobile/routers/router.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class LoginPage extends ConsumerStatefulWidget {
 class _LoginPageState extends ConsumerState<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
+  bool obscureText = true;
   @override
   Widget build(BuildContext context) {
     final authState = ref.watch(authProvider);
@@ -64,9 +65,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 _passwordController,
                 func: (value) {},
                 hintText: "Masukan Password",
-                obscureText: true,
+                obscureText: obscureText,
                 text: "Password",
                 icon: "assets/icon/icon_password.svg",
+                suffixIcon: obscureText == false
+                    ? "assets/icon/icon_eye_open.svg"
+                    : "assets/icon/icon_eye_close.svg",
+                iconFunc: () {
+                  setState(() {
+                    obscureText = !obscureText;
+                  });
+                },
               ),
               const SizedBox(height: 13),
               GestureDetector(
@@ -95,7 +104,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       SnackBar(content: Text(authState.errorMessage!)),
                     );
                   } else if (authState.user != null) {
-                    context.go("/home");
+                    router.go("/home");
                   }
                 },
                 child: AppButton(

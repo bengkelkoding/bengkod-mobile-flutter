@@ -1,4 +1,3 @@
-
 class User {
   final String token;
 

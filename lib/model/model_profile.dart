@@ -5,10 +5,13 @@ class Profile {
   String? email;
 
   Profile({this.id, this.nim, this.name, this.email});
+
   Profile.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    nim = json['identity_code'];
-    name = json['name'];
-    email = json['email'];
+    final data = json['data'];
+
+    id = data['id'];
+    nim = data['identity_code'];
+    name = data['name'];
+    email = data['email'];
   }
 }

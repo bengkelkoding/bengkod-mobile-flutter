@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import '../../../../config/api.dart';
 import '../models/model_user.dart';
@@ -31,13 +32,21 @@ class AuthController extends StateNotifier<AuthState> {
 
       if (response.statusCode == 200) {
         final responseData = json.decode(response.body);
-        state = AuthState(user: User.fromJson(responseData));
-        print(responseData);
+        final user = User.fromJson(responseData);
+        _saveTokenLocally(user.token);
+        print(user.token);
+        state = AuthState(user: user);
       } else {
         state = AuthState(errorMessage: 'Login failed');
       }
     } catch (e) {
       state = AuthState(errorMessage: 'An error occurred');
     }
+  }
+
+  // Fungsi untuk menyimpan token ke dalam database lokal
+  Future<void> _saveTokenLocally(String token) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('token', token);
   }
 }

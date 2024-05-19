@@ -8,7 +8,9 @@ Widget AppTextFieldForm(
   String text = "",
   String hintText = "",
   String icon = "",
+  String? suffixIcon,
   bool obscureText = false,
+  void Function()? iconFunc,
   void Function(String value)? func,
 }) {
   return Column(
@@ -36,6 +38,16 @@ Widget AppTextFieldForm(
             widthFactor: 2.5,
             heightFactor: 1.0,
             child: SvgPicture.asset(icon),
+          ),
+          suffixIcon: Align(
+            widthFactor: 2.5,
+            heightFactor: 1.0,
+            child: suffixIcon != null
+                ? GestureDetector(
+                    onTap: iconFunc,
+                    child: SvgPicture.asset(suffixIcon),
+                  )
+                : null,
           ),
         ),
         obscureText: obscureText,

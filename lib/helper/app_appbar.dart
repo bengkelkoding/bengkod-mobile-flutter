@@ -1,15 +1,29 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../features/home/controller/controller_home.dart';
 import '../utils/app_colors_palette.dart';
 import '../utils/app_font_styles.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends ConsumerStatefulWidget
+    implements PreferredSizeWidget {
   const CustomAppBar({super.key});
+
+  @override
+  ConsumerState<CustomAppBar> createState() => _CustomAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(134);
+}
+
+class _CustomAppBarState extends ConsumerState<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
+    final userProfile = ref.read(UserProfileProvider.profileProvider);
     final MediaQueryHeight = MediaQuery.of(context).size.height;
+
     return PreferredSize(
       preferredSize: const Size.fromHeight(134),
       child: Container(
@@ -44,7 +58,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     children: [
                       SizedBox(
                         width: MediaQueryHeight * 0.35,
-                        child: Text('Hi, Fannan Gantengckcokcokc',
+                        child: Text(
+                            userProfile.when(
+                              data: (profile) => 'Hi, ${profile.name}',
+                              loading: () => 'Loading...',
+                              error: (error, stack) => 'Error',
+                            ),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: AppTextStyle.textStyle(
@@ -87,7 +106,4 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(134);
 }
