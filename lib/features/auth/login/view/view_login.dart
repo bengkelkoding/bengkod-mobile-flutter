@@ -23,7 +23,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   bool obscureText = true;
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authProvider);
+    var authState = ref.watch(authProvider);
     final authController = ref.read(authProvider.notifier);
 
     return Scaffold(
@@ -98,13 +98,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     _emailController.text,
                     _passwordController.text,
                   );
-
-                  if (authState.errorMessage != null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(authState.errorMessage!)),
-                    );
-                  } else if (authState.user != null) {
+                  setState(() {
+                    authState = ref.watch(authProvider);
+                  });
+                  if (authState.user != null) {
                     router.go("/home");
+                  } else {
+                    String errorMessage =
+                        authState.errorMessage ?? "An unknown error occurred.";
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(errorMessage)),
+                    );
                   }
                 },
                 child: AppButton(

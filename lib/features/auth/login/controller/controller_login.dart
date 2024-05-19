@@ -34,7 +34,6 @@ class AuthController extends StateNotifier<AuthState> {
         final responseData = json.decode(response.body);
         final user = User.fromJson(responseData);
         _saveTokenLocally(user.token);
-        print(user.token);
         state = AuthState(user: user);
       } else {
         state = AuthState(errorMessage: 'Login failed');
