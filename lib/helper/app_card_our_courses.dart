@@ -50,7 +50,7 @@ class AppOurCardCourses extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 2),
           SizedBox(
             height: MediaQueryHeight * 0.05,
             width: 120,
@@ -66,19 +66,12 @@ class AppOurCardCourses extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "Senin - Jum'at",
+                  "Kursus ini akan mengajarkan Anda cara membuat model machine learning sederhana\n                                  menggunakan Python. Anda akan belajar cara memproses data, membuat model, dan\n                                  mengevaluasi model.",
                   style: AppTextStyle.textStyle(
                     size: 8,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Text(
-                  "09.30 - 12.00 / 12.30 - 15.00",
-                  style: AppTextStyle.textStyle(
-                    size: 8,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
               ],
             ),
           )
