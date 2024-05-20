@@ -243,8 +243,16 @@ LINK QUIZ TEST 1 : https://docs.google.com/forms/d/e/1FAIpQLScHV67ltxI_QoHBND0XE
               const SizedBox(height: 30),
               GestureDetector(
                 onTap: () {
-                  // Menampilkan dialog dengan nama file yang sudah dipilih
-                  _showSelectedFilesDialog(context, _result);
+                  setState(() {
+                    _showSelectedFilesDialog(context, _result, result);
+                    _result = result != null
+                        ? result!.files
+                            .map((element) => element.name)
+                            .join(", ")
+                        : "Upload File";
+                    ;
+                  });
+                  print(result);
                 },
                 child: AppButton(
                   height: 37,
@@ -267,7 +275,8 @@ LINK QUIZ TEST 1 : https://docs.google.com/forms/d/e/1FAIpQLScHV67ltxI_QoHBND0XE
   }
 }
 
-void _showSelectedFilesDialog(BuildContext context, String selectedFiles) {
+void _showSelectedFilesDialog(
+    BuildContext context, String selectedFiles, FilePickerResult? result) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -277,6 +286,7 @@ void _showSelectedFilesDialog(BuildContext context, String selectedFiles) {
         actions: [
           TextButton(
             onPressed: () {
+              result = null;
               Navigator.of(context).pop();
             },
             child: const Text("Close"),
