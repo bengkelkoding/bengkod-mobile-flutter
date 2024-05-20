@@ -20,17 +20,12 @@ class HomeView extends ConsumerStatefulWidget {
 
 class _HomeViewState extends ConsumerState<HomeView> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,

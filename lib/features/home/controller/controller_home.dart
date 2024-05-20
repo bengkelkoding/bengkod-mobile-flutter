@@ -19,7 +19,7 @@ class UserProfile {
 
       if (response.statusCode == 200) {
         final responseData = json.decode(response.body);
-        print(token);
+        print(responseData);
         return Profile.fromJson(responseData);
       } else {
         throw Exception(
@@ -29,9 +29,7 @@ class UserProfile {
       throw Exception(e);
     }
   }
-}
 
-class UserProfileProvider {
   static final profileProvider = FutureProvider<Profile>((ref) async {
     final token = await _retrieveToken();
     if (token != null) {
@@ -41,7 +39,6 @@ class UserProfileProvider {
       throw Exception('User is not logged in');
     }
   });
-
   static Future<String?> _retrieveToken() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('token');

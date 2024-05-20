@@ -21,9 +21,8 @@ class CustomAppBar extends ConsumerStatefulWidget
 class _CustomAppBarState extends ConsumerState<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    final userProfile = ref.read(UserProfileProvider.profileProvider);
+    var userProfile = ref.read(UserProfile.profileProvider);
     final MediaQueryHeight = MediaQuery.of(context).size.height;
-
     return PreferredSize(
       preferredSize: const Size.fromHeight(134),
       child: Container(
