@@ -4,6 +4,9 @@ import 'package:bengkel_koding_mobile/features/classroom_modul_dashboard/view/vi
 import 'package:bengkel_koding_mobile/features/classroom_modul_list/view/view_classroom_modul_list.dart';
 import 'package:bengkel_koding_mobile/features/classroom_struktur/view/view_classroom_struktur.dart';
 import 'package:bengkel_koding_mobile/features/home/view/view_home.dart';
+import 'package:bengkel_koding_mobile/features/onboarding/view/view_onboarding1.dart';
+import 'package:bengkel_koding_mobile/features/onboarding/view/view_onboarding2.dart';
+import 'package:bengkel_koding_mobile/features/onboarding/view/view_onboarding3.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,6 +28,24 @@ final GoRouter router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: '/',
+      builder: (context, state) {
+        return const Onboarding1Page();
+      },
+    ),
+    GoRoute(
+      path: '/onBoarding2',
+      builder: (context, state) {
+        return const Onboarding2Page();
+      },
+    ),
+    GoRoute(
+      path: '/onBoarding3',
+      builder: (context, state) {
+        return const Onboarding3Page();
+      },
+    ),
+    GoRoute(
+      path: '/login',
       builder: (context, state) {
         return const LoginPage();
       },
