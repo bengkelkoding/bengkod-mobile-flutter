@@ -1,3 +1,4 @@
+import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,11 +27,13 @@ Widget AppTextFieldForm(
       TextFormField(
         controller: controller,
         decoration: InputDecoration(
-          fillColor: const Color(0xFFD9D9D9),
-          filled: true,
           border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(width: 2, color: AppColor.blackColor),
+          ),
+          focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide.none),
+              borderSide: BorderSide(width: 2, color: AppColor.primaryColor)),
           hintText: hintText,
           hintStyle:
               AppTextStyle.textStyle(size: 15, fontWeight: FontWeight.w300),

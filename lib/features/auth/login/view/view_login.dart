@@ -7,7 +7,6 @@ import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import '../controller/controller_login.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
@@ -128,7 +127,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 4,
-                      offset: const Offset(0, 4),
+                      offset: const Offset(0, 2),
                       color: AppColor.blackColor.withOpacity(0.25),
                     ),
                   ],
