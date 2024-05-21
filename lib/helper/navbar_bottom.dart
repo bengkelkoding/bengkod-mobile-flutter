@@ -55,7 +55,9 @@ class NavbarBottom extends StatelessWidget {
                   label: "Beranda",
                 ),
                 BottomNavigationBarItem(
-                  icon: SvgPicture.asset('assets/icon/icon_classroom.svg'),
+                  icon: currentIndex == 1
+                      ? SvgPicture.asset('assets/icon/icon_classroom_hover.svg')
+                      : SvgPicture.asset('assets/icon/icon_classroom.svg'),
                   label: 'Kelas',
                 ),
                 BottomNavigationBarItem(

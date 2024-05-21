@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../utils/app_colors_palette.dart';
 import '../utils/app_font_styles.dart';
@@ -53,38 +54,45 @@ class AppOurCardCourses extends StatelessWidget {
                 )),
           ),
           const SizedBox(height: 5),
-          Text(
-            nameCourse!,
-            style: AppTextStyle.textStyle(
-              size: 13,
-              fontWeight: FontWeight.w600,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              nameCourse!,
+              style: AppTextStyle.textStyle(
+                size: 13,
+                fontWeight: FontWeight.w600,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           const SizedBox(height: 2),
           SizedBox(
             height: MediaQueryHeight * 0.05,
-            width: 120,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  studentCount.toString(),
-                  style: AppTextStyle.textStyle(
-                    size: 8,
-                    fontWeight: FontWeight.w500,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "$studentCount Mahasiswa",
+                    style: AppTextStyle.textStyle(
+                      size: 8,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
-                Text(
-                  description!,
-                  style: AppTextStyle.textStyle(
-                    size: 8,
-                    fontWeight: FontWeight.w500,
+                  Text(
+                    description!,
+                    style: AppTextStyle.textStyle(
+                      size: 8,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+                ],
+              ),
             ),
           )
         ],
