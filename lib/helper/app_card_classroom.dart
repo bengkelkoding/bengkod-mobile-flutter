@@ -4,7 +4,20 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomClassroomCard extends StatelessWidget {
-  const CustomClassroomCard({super.key});
+  String? nameClassroom = "";
+  String? description = "";
+  String? time = "";
+  String? day = "";
+  String? room = "";
+  int finalScore;
+  CustomClassroomCard(
+      {super.key,
+      required this.nameClassroom,
+      required this.description,
+      required this.time,
+      required this.day,
+      required this.room,
+      required this.finalScore});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +48,7 @@ class CustomClassroomCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'BENGKEL KODING - M01',
+                        nameClassroom!,
                         style: TextStyle(
                           fontSize: 15,
                           color: AppColor.whiteColor,
@@ -44,7 +57,7 @@ class CustomClassroomCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        'Dicourse ini kita akan belajar\nMobile Developer menggunakan Flutter. ',
+                        description!,
                         style: TextStyle(
                           fontSize: 10,
                           color: AppColor.whiteColor,
@@ -65,21 +78,45 @@ class CustomClassroomCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Hari  : Jumat',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: AppColor.whiteColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Hari  : ',
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: AppColor.whiteColor,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    day!,
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: AppColor.whiteColor,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                'Jam : 13.00 -14.10',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: AppColor.whiteColor,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                              Row(
+                                children: [
+                                  Text(
+                                    'Jam : ',
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: AppColor.whiteColor,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    time!,
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: AppColor.whiteColor,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -96,13 +133,25 @@ class CustomClassroomCard extends StatelessWidget {
                             color: AppColor.whiteColor,
                           ),
                           const SizedBox(width: 10),
-                          Text(
-                            'Ruangan : H.6.2',
-                            style: TextStyle(
-                              fontSize: 10,
-                              color: AppColor.whiteColor,
-                              fontWeight: FontWeight.w400,
-                            ),
+                          Row(
+                            children: [
+                              Text(
+                                'Ruangan : ',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: AppColor.whiteColor,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              Text(
+                                room!,
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: AppColor.whiteColor,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -137,7 +186,7 @@ class CustomClassroomCard extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            '90',
+                            finalScore.toString(),
                             style: TextStyle(
                               fontSize: 40,
                               color: AppColor.primaryColor,

@@ -1,20 +1,25 @@
+import 'package:bengkel_koding_mobile/features/classroom/controller/controller_classroom.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_classroom.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../helper/app_appbar.dart';
 
-class ClassView extends StatefulWidget {
+class ClassView extends ConsumerStatefulWidget {
   const ClassView({super.key});
 
   @override
-  State<ClassView> createState() => _ClassViewState();
+  ConsumerState<ClassView> createState() => _ClassViewState();
 }
 
-class _ClassViewState extends State<ClassView> {
+class _ClassViewState extends ConsumerState<ClassView> {
   @override
   Widget build(BuildContext context) {
+    final allClassroom = ref.watch(ClassroomService.classroomProvider);
+
     return Scaffold(
       appBar: const CustomAppBar(),
       body: Padding(
@@ -48,15 +53,31 @@ class _ClassViewState extends State<ClassView> {
             const SizedBox(height: 10),
             Expanded(
               child: SingleChildScrollView(
-                child: ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return const CustomClassroomCard();
-                  },
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(height: 5),
+                child: allClassroom.when(
+                  data: (data) => ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      final classroom = data[index];
+                      return CustomClassroomCard(
+                        nameClassroom: classroom.name,
+                        description: classroom.description,
+                        time: classroom.time,
+                        day: classroom.day,
+                        room: classroom.room,
+                        finalScore: classroom.finalScore ?? 0,
+                      );
+                    },
+                    itemCount: data.length,
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(height: 5),
+                  ),
+                  error: (error, stackTrace) => Center(
+                    child: Text('Error: $error'),
+                  ),
+                  loading: () => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
                 ),
               ),
             ),

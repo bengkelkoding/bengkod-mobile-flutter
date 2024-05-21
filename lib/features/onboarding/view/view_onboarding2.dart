@@ -66,13 +66,16 @@ class _Onboarding2PageState extends ConsumerState<Onboarding2Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 22,
-                  height: 17,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.greyGradientBlue,
+                GestureDetector(
+                  onTap: () => context.pop("/"),
+                  child: Container(
+                    width: 22,
+                    height: 17,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColor.greyGradientBlue,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 8),
@@ -86,13 +89,16 @@ class _Onboarding2PageState extends ConsumerState<Onboarding2Page> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Container(
-                  width: 22,
-                  height: 17,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.greyGradientBlue,
+                GestureDetector(
+                  onTap: () => context.push("/onboarding3"),
+                  child: Container(
+                    width: 22,
+                    height: 17,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColor.greyGradientBlue,
+                    ),
                   ),
                 ),
               ],

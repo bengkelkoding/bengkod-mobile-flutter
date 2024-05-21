@@ -6,4 +6,5 @@ class Api {
   static const allCourses = '$base_url/api/v1/mobile/student/dashboard/courses';
   static const latestAssignment =
       '$base_url/api/v1/mobile/student/dashboard/latest-assignment';
+  static const listClassroom = '$base_url/api/v1/mobile/student/classroom/';
 }

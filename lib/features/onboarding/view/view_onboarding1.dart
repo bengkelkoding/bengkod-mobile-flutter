@@ -76,25 +76,29 @@ class _Onboarding1PageState extends ConsumerState<Onboarding1Page> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Container(
-                  width: 22,
-                  height: 17,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.greyGradientBlue,
-                  ),
-                ),
+                GestureDetector(
+                    onTap: () => context.push("/onboarding2"),
+                    child: Container(
+                      width: 22,
+                      height: 17,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(15),
+                        color: AppColor.greyGradientBlue,
+                      ),
+                    )),
                 const SizedBox(width: 8),
-                Container(
-                  width: 30,
-                  height: 17,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.greyGradientBlue,
-                  ),
-                ),
+                GestureDetector(
+                    onTap: () => context.push("/onboarding3"),
+                    child: Container(
+                      width: 30,
+                      height: 17,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(15),
+                        color: AppColor.greyGradientBlue,
+                      ),
+                    )),
               ],
             ),
             SizedBox(height: 20),

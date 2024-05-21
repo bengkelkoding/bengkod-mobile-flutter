@@ -75,23 +75,29 @@ class _Onboarding3PageState extends ConsumerState<Onboarding3Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 30,
-                  height: 17,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.greyGradientBlue,
+                GestureDetector(
+                  onTap: () => context.pop("/"),
+                  child: Container(
+                    width: 30,
+                    height: 17,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColor.greyGradientBlue,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 8),
-                Container(
-                  width: 22,
-                  height: 17,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                    color: AppColor.greyGradientBlue,
+                GestureDetector(
+                  onTap: () => context.pop("/onboarding2"),
+                  child: Container(
+                    width: 22,
+                    height: 17,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(15),
+                      color: AppColor.greyGradientBlue,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 8),
