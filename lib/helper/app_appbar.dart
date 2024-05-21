@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../features/home/controller/controller_home.dart';
 import '../utils/app_colors_palette.dart';
@@ -21,7 +22,7 @@ class CustomAppBar extends ConsumerStatefulWidget
 class _CustomAppBarState extends ConsumerState<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    var userProfile = ref.read(UserProfile.profileProvider);
+    final userProfile = ref.read(UserProfile.profileProvider);
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return PreferredSize(
       preferredSize: const Size.fromHeight(134),
@@ -83,7 +84,7 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () => context.go("/profile"),
                     child: Transform.scale(
                       scale: 1.80,
                       child: CircleAvatar(

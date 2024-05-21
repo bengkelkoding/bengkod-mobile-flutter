@@ -20,46 +20,44 @@ class _AssignmentViewState extends State<AssignmentView> {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
-    return SafeArea(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: const CustomAppBar(),
-        body: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          height: MediaQueryHeight,
-          width: MediaQueryWidth,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.only(top: 145),
-            scrollDirection: Axis.vertical,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                AppButton(
-                  height: 37,
-                  content: Text(
-                    "Penugasan",
-                    style: AppTextStyle.textStyle(
-                        size: 20,
-                        fontWeight: FontWeight.w500,
-                        color: AppColor.whiteColor),
-                  ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: const CustomAppBar(),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: MediaQueryHeight,
+        width: MediaQueryWidth,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.only(top: 145, bottom: 40),
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AppButton(
+                height: 37,
+                content: Text(
+                  "Penugasan",
+                  style: AppTextStyle.textStyle(
+                      size: 20,
+                      fontWeight: FontWeight.w500,
+                      color: AppColor.whiteColor),
                 ),
-                const SizedBox(height: 20),
-                Flexible(
-                  child: ListView.separated(
-                    padding: const EdgeInsets.only(top: 0),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return const AppCardDropdown();
-                    },
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 20),
-                  ),
+              ),
+              const SizedBox(height: 20),
+              Flexible(
+                child: ListView.separated(
+                  padding: const EdgeInsets.only(top: 0),
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 2,
+                  itemBuilder: (context, index) {
+                    return const AppCardDropdown();
+                  },
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 20),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../helper/navbar_bottom.dart';
@@ -16,10 +17,20 @@ class NavigationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: navigationShell,
-        bottomNavigationBar: NavbarBottom(
-          currentIndex: _calculateSelectedIndex(context),
-          onTap: _onTap,
+        body: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 40),
+              child: navigationShell,
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: NavbarBottom(
+                currentIndex: _calculateSelectedIndex(context),
+                onTap: _onTap,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -38,7 +49,7 @@ class NavigationView extends StatelessWidget {
     if (location.startsWith('/profile')) {
       return 3;
     }
-    return 0; // Default: Home
+    return 0;
   }
 
   void _onTap(index) {

@@ -11,15 +11,13 @@ class ClassDetailModulView extends StatelessWidget {
     // ignore: unused_local_variable
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     final MediaQueryHeight = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: const CustomAppBarSmall(),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.only(top: MediaQueryHeight * 0.18),
-          child: const Column(
-            children: [],
-          ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: const CustomAppBarSmall(),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.only(top: MediaQueryHeight * 0.18),
+        child: const Column(
+          children: [],
         ),
       ),
     );

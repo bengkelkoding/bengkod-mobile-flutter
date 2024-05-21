@@ -33,7 +33,7 @@ class _AssignmentDetailViewState extends State<AssignmentDetailView> {
         height: MediaQueryHeight,
         width: MediaQueryWidth,
         child: SingleChildScrollView(
-          padding: const EdgeInsets.only(top: 145),
+          padding: const EdgeInsets.only(top: 145, bottom: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

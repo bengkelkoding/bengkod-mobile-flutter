@@ -4,7 +4,17 @@ import '../utils/app_colors_palette.dart';
 import '../utils/app_font_styles.dart';
 
 class AppOurCardCourses extends StatelessWidget {
-  const AppOurCardCourses({super.key});
+  String? image = "";
+  String? nameCourse = "";
+  int studentCount;
+  String? description = "";
+  AppOurCardCourses({
+    super.key,
+    required this.image,
+    required this.nameCourse,
+    required this.studentCount,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +44,17 @@ class AppOurCardCourses extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
             child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(5), topRight: Radius.circular(5)),
-              child: Image.asset(
-                "assets/image/image_course3.png",
-                fit: BoxFit.cover,
-              ),
-            ),
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(5), topRight: Radius.circular(5)),
+                child: Image.asset(
+                  image!,
+                  scale: 1,
+                  fit: BoxFit.cover,
+                )),
           ),
           const SizedBox(height: 5),
           Text(
-            "Mobile Developer",
+            nameCourse!,
             style: AppTextStyle.textStyle(
               size: 13,
               fontWeight: FontWeight.w600,
@@ -59,18 +69,20 @@ class AppOurCardCourses extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  "0 Mahasiswa terdaftar",
+                  studentCount.toString(),
                   style: AppTextStyle.textStyle(
                     size: 8,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 Text(
-                  "Kursus ini akan mengajarkan Anda cara membuat model machine learning sederhana\n                                  menggunakan Python. Anda akan belajar cara memproses data, membuat model, dan\n                                  mengevaluasi model.",
+                  description!,
                   style: AppTextStyle.textStyle(
                     size: 8,
                     fontWeight: FontWeight.w500,
                   ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

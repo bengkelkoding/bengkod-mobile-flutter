@@ -14,6 +14,7 @@ import '../features/assignment/view/view_assignment.dart';
 import '../features/assignment_detail/view/view_assignment_detail.dart';
 import '../features/classroom/view/view_classroom.dart';
 import '../features/navigation/view/view_navigation.dart';
+import '../features/profile/view/view_profile.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -128,6 +129,17 @@ final GoRouter router = GoRouter(
                   },
                 ),
               ],
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          navigatorKey: profileNavigatorKey,
+          routes: <RouteBase>[
+            GoRoute(
+              path: '/profile',
+              builder: (context, state) {
+                return const ProfileView();
+              },
             ),
           ],
         ),
