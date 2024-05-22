@@ -1,11 +1,10 @@
+import 'package:bengkel_koding_mobile/features/profile/controller/controller_profile.dart';
 import 'package:bengkel_koding_mobile/helper/app_button.dart';
 import 'package:bengkel_koding_mobile/helper/app_text_field_form.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../home/controller/controller_home.dart';
 
 class ProfileView extends ConsumerStatefulWidget {
   const ProfileView({super.key});
@@ -130,7 +129,7 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                     func: (value) {},
                     hintText: "Masukan Password",
                     obscureText: obscureTextConNewPas,
-                    text: "Password Baru",
+                    text: "Konfirmasi Password Baru",
                     icon: "assets/icon/icon_password.svg",
                     suffixIcon: obscureTextConNewPas == false
                         ? "assets/icon/icon_eye_open.svg"

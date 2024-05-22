@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
-import '../features/home/controller/controller_home.dart';
+import '../features/profile/controller/controller_profile.dart';
 import '../utils/app_colors_palette.dart';
 import '../utils/app_font_styles.dart';
 
