@@ -188,7 +188,7 @@ class CustomClassroomCard extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            finalScore.toString(),
+                            finalScore == 0 ? "-" : finalScore.toString(),
                             style: TextStyle(
                               fontSize: 40,
                               color: AppColor.primaryColor,
