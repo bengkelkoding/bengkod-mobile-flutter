@@ -15,7 +15,6 @@ class ClassroomService {
       if (response.statusCode == 200) {
         final responseData = json.decode(response.body);
         List<dynamic> data = responseData['data'];
-        print(data);
         return data.map((e) => Classroom.fromJson(e)).toList();
       } else {
         throw Exception(
@@ -25,6 +24,7 @@ class ClassroomService {
       throw Exception(e);
     }
   }
+
   static final classroomProvider = FutureProvider<List<Classroom>>((ref) async {
     final token = await _retrieveToken();
     if (token != null) {

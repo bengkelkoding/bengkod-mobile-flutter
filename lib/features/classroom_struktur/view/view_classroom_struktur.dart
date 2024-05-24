@@ -19,7 +19,7 @@ class ClassStrukturView extends StatelessWidget {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 135),
         child: Column(

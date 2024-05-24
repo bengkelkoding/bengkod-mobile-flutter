@@ -27,7 +27,7 @@ class _AssignmentDetailViewState extends State<AssignmentDetailView> {
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         height: MediaQueryHeight,
@@ -250,9 +250,7 @@ LINK QUIZ TEST 1 : https://docs.google.com/forms/d/e/1FAIpQLScHV67ltxI_QoHBND0XE
                             .map((element) => element.name)
                             .join(", ")
                         : "Upload File";
-                    ;
                   });
-                  print(result);
                 },
                 child: AppButton(
                   height: 37,

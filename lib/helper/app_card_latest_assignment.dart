@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomAssignmentCard extends StatelessWidget {
-  const CustomAssignmentCard({super.key});
+class CustomLatestAssignmentCard extends StatelessWidget {
+  const CustomLatestAssignmentCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +32,30 @@ class CustomAssignmentCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Studi Kasus',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: AppColor.blackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        'Studi Kasus',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: AppColor.blackColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      Expanded(
+                        child: Text(
+                          'Tersisa 2 Jam lagi',
+                          style: AppTextStyle.textStyle(
+                            size: 10,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.primaryColor,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 7),
                   Text(
@@ -88,7 +105,7 @@ class CustomAssignmentCard extends StatelessWidget {
               flex: 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Center(
                     child: Text(

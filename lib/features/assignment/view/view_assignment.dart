@@ -22,7 +22,7 @@ class _AssignmentViewState extends State<AssignmentView> {
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         height: MediaQueryHeight,

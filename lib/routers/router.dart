@@ -1,3 +1,4 @@
+import 'package:bengkel_koding_mobile/features/auth/forget_password/view/view_forget_password.dart';
 import 'package:bengkel_koding_mobile/features/auth/login/view/view_login.dart';
 import 'package:bengkel_koding_mobile/features/classroom_detail_modul/view/view_classroom_detail_modul.dart';
 import 'package:bengkel_koding_mobile/features/classroom_modul_dashboard/view/view_modul_dashboard.dart';
@@ -46,11 +47,18 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/login',
-      builder: (context, state) {
-        return const LoginPage();
-      },
-    ),
+        path: '/login',
+        builder: (context, state) {
+          return const LoginPage();
+        },
+        routes: <RouteBase>[
+          GoRoute(
+            path: 'forgotPassword',
+            builder: (context, state) {
+              return const ForgotPasswordView();
+            },
+          )
+        ]),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return NavigationView(state.matchedLocation, navigationShell);

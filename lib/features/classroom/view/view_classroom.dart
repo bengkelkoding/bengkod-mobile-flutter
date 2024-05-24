@@ -4,7 +4,6 @@ import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../helper/app_appbar.dart';
 
@@ -21,7 +20,7 @@ class _ClassViewState extends ConsumerState<ClassView> {
     final allClassroom = ref.watch(ClassroomService.classroomProvider);
 
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(

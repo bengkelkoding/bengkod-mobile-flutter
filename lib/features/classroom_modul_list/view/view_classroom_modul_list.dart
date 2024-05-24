@@ -17,7 +17,7 @@ class ClassModulListView extends StatelessWidget {
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(top: MediaQueryHeight * 0.18),
         child: Column(

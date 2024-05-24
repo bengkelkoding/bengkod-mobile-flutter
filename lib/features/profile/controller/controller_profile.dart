@@ -19,7 +19,6 @@ class UserProfile {
 
       if (response.statusCode == 200) {
         final responseData = json.decode(response.body);
-        print(responseData);
         return Profile.fromJson(responseData);
       } else {
         throw Exception(
@@ -39,8 +38,42 @@ class UserProfile {
       throw Exception('User is not logged in');
     }
   });
-  static Future<String?> _retrieveToken() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString('token');
+}
+
+class UserProfileName {
+  Future<ProfileName> getProfileName(String token) async {
+    try {
+      final response = await http.get(
+        Uri.parse(Api.userProfileName),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = json.decode(response.body);
+        return ProfileName.fromJson(responseData);
+      } else {
+        throw Exception(
+            'Failed to load profile. Status code: ${response.statusCode}. Error message: ${response.reasonPhrase}');
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
   }
+
+  static final profileProvider = FutureProvider<ProfileName>((ref) async {
+    final token = await _retrieveToken();
+    if (token != null) {
+      final userProfile = UserProfileName();
+      return userProfile.getProfileName(token);
+    } else {
+      throw Exception('User is not logged in');
+    }
+  });
+}
+
+Future<String?> _retrieveToken() async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getString('token');
 }

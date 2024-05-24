@@ -10,7 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../helper/app_card_latest_assignment.dart';
 import '../../../helper/app_card_your_courses.dart';
+import '../../profile/controller/controller_profile.dart';
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -23,6 +25,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   @override
   Widget build(BuildContext context) {
     final allCourses = ref.watch(AllCourses.allCoursesProvider);
+    final userProfile = ref.read(UserProfileName.profileProvider);
     // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     // ignore: non_constant_identifier_names
@@ -30,7 +33,13 @@ class _HomeViewState extends ConsumerState<HomeView> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        name: userProfile.when(
+          data: (profile) => 'Hi, ${profile.name}',
+          loading: () => 'Loading...',
+          error: (error, stack) => 'Error',
+        ),
+      ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         width: MediaQueryWidth,
@@ -59,7 +68,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     itemBuilder: (context, index) {
                       final course = data[index];
                       return AppOurCardCourses(
-                        image: "assets/image/header_bengkod.png",
+                        image: "assets/image/image_course2.png",
                         studentCount: course.studentCount,
                         nameCourse: course.title,
                         description: course.description,
@@ -67,8 +76,12 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     },
                     itemCount: data.length,
                   ),
-                  error: (Object error, StackTrace stackTrace) {},
-                  loading: () {},
+                  error: (Object error, StackTrace stackTrace) {
+                    return null;
+                  },
+                  loading: () {
+                    return null;
+                  },
                 ),
               ),
               const SizedBox(height: 15),
@@ -146,7 +159,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     padding: const EdgeInsets.only(top: 0),
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {
-                      return const CustomAssignmentCard();
+                      return const CustomLatestAssignmentCard();
                     },
                     itemCount: 1,
                   ),

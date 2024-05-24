@@ -101,7 +101,7 @@ class _Onboarding1PageState extends ConsumerState<Onboarding1Page> {
                     )),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: GestureDetector(

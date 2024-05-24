@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../helper/navbar_bottom.dart';
@@ -21,7 +20,9 @@ class NavigationView extends StatelessWidget {
         body: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 40),
+              padding: (location.startsWith("/profile"))
+                  ? const EdgeInsets.all(0)
+                  : const EdgeInsets.only(bottom: 40),
               child: navigationShell,
             ),
             Align(

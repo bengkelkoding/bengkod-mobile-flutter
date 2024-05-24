@@ -15,3 +15,14 @@ class Profile {
     email = data['email'];
   }
 }
+
+class ProfileName {
+  String? name;
+
+  ProfileName({this.name});
+
+  ProfileName.fromJson(Map<String, dynamic> json) {
+    final data = json['data'];
+    name = data['name'];
+  }
+}
