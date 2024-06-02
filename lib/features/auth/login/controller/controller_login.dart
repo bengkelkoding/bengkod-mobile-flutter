@@ -36,7 +36,7 @@ class AuthController extends StateNotifier<AuthState> {
         _saveTokenLocally(user.token);
         state = AuthState(user: user);
       } else {
-        state = AuthState(errorMessage: 'Login failed');
+        state = AuthState(errorMessage: 'Login failed' + response.body);
       }
     } catch (e) {
       state = AuthState(errorMessage: 'An error occurred');

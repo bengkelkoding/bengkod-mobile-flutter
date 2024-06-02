@@ -1,5 +1,5 @@
 class Api {
-  static const baseUrl = 'http://52.221.47.126';
+  static const baseUrl = 'https://bengkelkoding.rayhanashlikh.my.id';
   static const login = '$baseUrl/api/v1/auth/login';
   static const userProfile = '$baseUrl/api/v1/auth/profile';
   static const userProfileName = '$baseUrl/api/v1/auth/name';

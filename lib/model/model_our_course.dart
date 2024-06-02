@@ -19,7 +19,7 @@ class OurCourses {
       id: data['id'],
       title: data['title'],
       image: data['image'],
-      description: data['description'],
+      description: data['brief_description'],
       studentCount: data['student_count'],
     );
   }
