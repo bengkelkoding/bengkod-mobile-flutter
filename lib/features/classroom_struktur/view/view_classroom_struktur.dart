@@ -44,9 +44,11 @@ class _ClassStrukturViewState extends ConsumerState<ClassStrukturView> {
         padding: const EdgeInsets.only(top: 135),
         child: Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: AppCardYourCourse(),
+              child: AppCardYourCourse(
+                title: "aasa",
+              ),
             ),
             Container(
               width: mediaQueryWidth,

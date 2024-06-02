@@ -1,6 +1,5 @@
 import 'package:bengkel_koding_mobile/features/home/controller/controller_home.dart';
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
-import 'package:bengkel_koding_mobile/helper/app_card_assignment.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_mentor.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_our_courses.dart';
@@ -25,6 +24,8 @@ class _HomeViewState extends ConsumerState<HomeView> {
   @override
   Widget build(BuildContext context) {
     final allCourses = ref.watch(AllCourses.allCoursesProvider);
+    final joinedClassroom =
+        ref.read(GetJoinedClassroom.joinedClassroomProvider);
     final userProfile = ref.read(UserProfileName.profileProvider);
     final listCourse = ref.read(Course.coursesProvider);
     // ignore: non_constant_identifier_names
@@ -96,9 +97,13 @@ class _HomeViewState extends ConsumerState<HomeView> {
               ),
               const SizedBox(height: 15),
               GestureDetector(
-                onTap: () => context.go("/classroom"),
-                child: const AppCardYourCourse(),
-              ),
+                  onTap: () => context.go("/classroom"),
+                  child: AppCardYourCourse(
+                      title: joinedClassroom.when(
+                    data: (data) => "${data.courseTitle}",
+                    error: (error, stackTrace) => "$error",
+                    loading: () => "Loading",
+                  ))),
               const SizedBox(height: 15),
               Text(
                 "Mentor Bengkel Koding",

@@ -1,10 +1,12 @@
 import 'package:bengkel_koding_mobile/features/profile/controller/controller_profile.dart';
 import 'package:bengkel_koding_mobile/helper/app_button.dart';
 import 'package:bengkel_koding_mobile/helper/app_text_field_form.dart';
+import 'package:bengkel_koding_mobile/routers/router.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileView extends ConsumerStatefulWidget {
   const ProfileView({super.key});
@@ -141,28 +143,61 @@ class _ProfileViewState extends ConsumerState<ProfileView> {
                     },
                   ),
                   const SizedBox(height: 30),
-                  AppButton(
-                    height: 37,
-                    color: AppColor.primaryColor,
-                    content: Text(
-                      "Submit",
-                      style: AppTextStyle.textStyle(
-                        size: 14,
-                        fontWeight: FontWeight.w500,
-                        color: AppColor.whiteColor,
+                  GestureDetector(
+                    onTap: () {
+                      print(_passwordController.text);
+                      print(_newPasswordController.text);
+                      print(_confirmNewPasswordController.text);
+                      ref
+                          .read(updatePasswordProvider({
+                        'oldPassword': _passwordController.text,
+                        'newPassword': _newPasswordController.text,
+                        'retypePassword': _confirmNewPasswordController.text,
+                      }).future)
+                          .then((profile) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text('Password updated successfully')),
+                        );
+                      }).catchError((error) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                              content:
+                                  Text('Failed to update password: $error')),
+                        );
+                      });
+                    },
+                    child: AppButton(
+                      height: 37,
+                      color: AppColor.primaryColor,
+                      content: Text(
+                        "Submit",
+                        style: AppTextStyle.textStyle(
+                          size: 14,
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.whiteColor,
+                        ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 15),
-                  AppButton(
-                    height: 37,
-                    color: AppColor.thirdPrimaryColor,
-                    content: Text(
-                      "Logout",
-                      style: AppTextStyle.textStyle(
-                        size: 14,
-                        fontWeight: FontWeight.w500,
-                        color: AppColor.whiteColor,
+                  GestureDetector(
+                    onTap: () async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      await prefs.remove('token');
+                      router.go("/login");
+                    },
+                    child: AppButton(
+                      height: 37,
+                      color: AppColor.thirdPrimaryColor,
+                      content: Text(
+                        "Logout",
+                        style: AppTextStyle.textStyle(
+                          size: 14,
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.whiteColor,
+                        ),
                       ),
                     ),
                   ),

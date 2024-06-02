@@ -7,6 +7,8 @@ class Api {
   static const allCourses = '$baseUrl/api/v1/mobile/student/dashboard/courses';
   static const latestAssignment =
       '$baseUrl/api/v1/mobile/student/dashboard/latest-assignment';
+  static const joinedClassroom =
+      '$baseUrl/api/v1/mobile/student/dashboard/joined-classroom';
 
   static const listClassroom = '$baseUrl/api/v1/mobile/student/classroom/';
 
@@ -17,5 +19,6 @@ class Api {
       '$baseUrl/api/v1/mobile/student/classroom/1/classmates';
   static const listInformation =
       '$baseUrl/api/v1/mobile/student/classroom/1/informations';
-  static const listCourse = '$baseUrl/api/v1/mobile/student/classroom/1/courses';
+  static const listCourse =
+      '$baseUrl/api/v1/mobile/student/classroom/1/courses';
 }

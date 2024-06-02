@@ -5,7 +5,8 @@ import '../utils/app_colors_palette.dart';
 import '../utils/app_font_styles.dart';
 
 class AppCardYourCourse extends StatelessWidget {
-  const AppCardYourCourse({super.key});
+  String title = "";
+  AppCardYourCourse({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +48,9 @@ class AppCardYourCourse extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                "Mobile Developer",
+                title,
                 style: AppTextStyle.textStyle(
-                  size: 20,
+                  size: 15,
                   fontWeight: FontWeight.w600,
                   color: AppColor.whiteColor,
                 ),

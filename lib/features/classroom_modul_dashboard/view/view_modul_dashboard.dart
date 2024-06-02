@@ -41,9 +41,11 @@ class _ClassModulDashboardViewState
           padding: const EdgeInsets.only(top: 135),
           child: Column(
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: AppCardYourCourse(),
+                child: AppCardYourCourse(
+                  title: "aa",
+                ),
               ),
               Container(
                 width: MediaQueryWidth,
@@ -208,7 +210,7 @@ class _ClassModulDashboardViewState
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
                                       final courses = data[index];
-                                      return  CustomCourseCard(
+                                      return CustomCourseCard(
                                         title: courses.title,
                                         descriptionCourse: courses.description,
                                         progress: courses.courseProgress,
