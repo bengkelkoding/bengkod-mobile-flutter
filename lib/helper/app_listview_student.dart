@@ -3,7 +3,15 @@ import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 
 class ListViewStudent extends StatelessWidget {
-  const ListViewStudent({super.key});
+  String? identityCode = "";
+  String? name = "";
+  String? image = "";
+  ListViewStudent({
+    super.key,
+    required this.identityCode,
+    required this.name,
+    required this.image,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +24,22 @@ class ListViewStudent extends StatelessWidget {
         children: <Widget>[
           CircleAvatar(
             radius: 23,
-            backgroundColor:
-                AppColor.secondPrimaryColor, // Set background color
-            child: const CircleAvatar(
-              radius: 21, // Adjust radius to accommodate border
-              backgroundImage: AssetImage("assets/image/mentor.jpeg"),
+            backgroundColor: AppColor.secondPrimaryColor,
+            child: ClipOval(
+              child: Image.network(
+                image!,
+                width: 40,
+                height: 40,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.network(
+                    'https://ui-avatars.com/api/?name=${name?.replaceAll(" ", "+")}',
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.cover,
+                  );
+                },
+              ),
             ),
           ),
           const SizedBox(width: 10),
@@ -31,14 +50,14 @@ class ListViewStudent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Nadine Abigail Cokrowanito',
+                  '$name',
                   style: AppTextStyle.textStyle(
                     size: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'A11.2021.13459',
+                  '$identityCode',
                   style: AppTextStyle.textStyle(
                     size: 14,
                     fontWeight: FontWeight.w400,

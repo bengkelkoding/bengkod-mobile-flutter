@@ -1,21 +1,24 @@
+import 'package:bengkel_koding_mobile/features/classroom_struktur/controller/controller_classroom_struktur.dart';
+import 'package:bengkel_koding_mobile/features/home/controller/controller_home.dart';
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_lecture.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_student.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../helper/app_card_your_courses.dart';
 
-class ClassStrukturView extends StatefulWidget {
+class ClassStrukturView extends ConsumerStatefulWidget {
   const ClassStrukturView({super.key});
 
   @override
   _ClassStrukturViewState createState() => _ClassStrukturViewState();
 }
 
-class _ClassStrukturViewState extends State<ClassStrukturView> {
+class _ClassStrukturViewState extends ConsumerState<ClassStrukturView> {
   String _selectedButton = '/classroom/strukturclassroom';
 
   void _navigateToPage(String page) {
@@ -27,8 +30,13 @@ class _ClassStrukturViewState extends State<ClassStrukturView> {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryWidth = MediaQuery.of(context).size.width;
-    final MediaQueryHeight = MediaQuery.of(context).size.height;
+    final listLecture =
+        ref.watch(ListViewLectureController.listLectureProvider);
+    final listStudent =
+        ref.watch(ListViewStudentController.liststudentProvider);
+    final mediaQueryWidth = MediaQuery.of(context).size.width;
+    final mediaQueryHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(),
@@ -41,8 +49,8 @@ class _ClassStrukturViewState extends State<ClassStrukturView> {
               child: AppCardYourCourse(),
             ),
             Container(
-              width: MediaQueryWidth,
-              height: MediaQueryHeight,
+              width: mediaQueryWidth,
+              height: mediaQueryHeight,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(30),
@@ -170,32 +178,56 @@ class _ClassStrukturViewState extends State<ClassStrukturView> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          Container(
-                              width: MediaQueryWidth,
-                              height: 280,
-                              decoration: BoxDecoration(
-                                color: AppColor.whiteColor,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    offset: const Offset(0, 2),
-                                    color:
-                                        AppColor.blackColor.withOpacity(0.25),
-                                    blurRadius: 4,
-                                  ),
-                                ],
-                              ),
-                              child: SizedBox(
-                                height: MediaQueryHeight * 0.23,
+                          listLecture.when(
+                            data: (data) {
+                              final itemCount = data.length;
+                              final itemHeight =
+                                  70.0; // Adjust based on your item height
+                              final containerHeight = itemCount * itemHeight;
+                              return Container(
+                                width: mediaQueryWidth,
+                                height: containerHeight,
+                                decoration: BoxDecoration(
+                                  color: AppColor.whiteColor,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      offset: const Offset(0, 2),
+                                      color:
+                                          AppColor.blackColor.withOpacity(0.25),
+                                      blurRadius: 4,
+                                    ),
+                                  ],
+                                ),
                                 child: ListView.builder(
                                   padding: const EdgeInsets.only(top: 0),
-                                  scrollDirection: Axis.vertical,
                                   itemBuilder: (context, index) {
-                                    return const ListViewLecture();
+                                    final lecture = data[index];
+                                    return ListViewLecture(
+                                      identityCode: lecture.identityCode,
+                                      image: lecture.image,
+                                      name: lecture.name,
+                                      role: lecture.role,
+                                    );
                                   },
-                                  itemCount: 4,
+                                  itemCount: itemCount,
+                                  physics:
+                                      NeverScrollableScrollPhysics(), // To disable scrolling inside the container
                                 ),
-                              )),
+                              );
+                            },
+                            error: (Object error, StackTrace stackTrace) {
+                              return Center(
+                                child: Text(
+                                  'Error: $error',
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              );
+                            },
+                            loading: () => const Center(
+                              child: CircularProgressIndicator(),
+                            ),
+                          ),
                           const SizedBox(height: 10),
                           Text(
                             "Anggota Kelas - M01",
@@ -206,30 +238,53 @@ class _ClassStrukturViewState extends State<ClassStrukturView> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          Container(
-                            width: MediaQueryWidth,
-                            height: 250,
-                            decoration: BoxDecoration(
-                              color: AppColor.whiteColor,
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  offset: const Offset(0, 2),
-                                  color: AppColor.blackColor.withOpacity(0.25),
-                                  blurRadius: 4,
+                          listStudent.when(
+                            data: (data) {
+                              final itemCount = data.length;
+                              final itemHeight =
+                                  90.0; // Adjust based on your item height
+                              final containerHeight = itemCount * itemHeight;
+                              return Container(
+                                width: mediaQueryWidth,
+                                height: containerHeight,
+                                decoration: BoxDecoration(
+                                  color: AppColor.whiteColor,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      offset: const Offset(0, 2),
+                                      color:
+                                          AppColor.blackColor.withOpacity(0.25),
+                                      blurRadius: 4,
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            child: SizedBox(
-                              height: MediaQueryHeight * 0.23,
-                              child: ListView.builder(
-                                padding: const EdgeInsets.only(top: 0),
-                                scrollDirection: Axis.vertical,
-                                itemBuilder: (context, index) {
-                                  return const ListViewStudent();
-                                },
-                                itemCount: 4,
-                              ),
+                                child: ListView.builder(
+                                  padding: const EdgeInsets.only(top: 0),
+                                  itemBuilder: (context, index) {
+                                    final lecture = data[index];
+                                    return ListViewStudent(
+                                      identityCode: lecture.identityCode,
+                                      image: lecture.image,
+                                      name: lecture.name,
+                                    );
+                                  },
+                                  itemCount: itemCount,
+                                  physics:
+                                      NeverScrollableScrollPhysics(), // To disable scrolling inside the container
+                                ),
+                              );
+                            },
+                            error: (Object error, StackTrace stackTrace) {
+                              return Center(
+                                child: Text(
+                                  'Error: $error',
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              );
+                            },
+                            loading: () => const Center(
+                              child: CircularProgressIndicator(),
                             ),
                           ),
                         ],

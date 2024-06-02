@@ -4,6 +4,7 @@ import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../helper/app_appbar.dart';
 
@@ -33,9 +34,10 @@ class _ClassViewState extends ConsumerState<ClassView> {
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                      offset: const Offset(0, 4),
-                      color: AppColor.blackColor.withOpacity(0.25),
-                      blurRadius: 4),
+                    offset: const Offset(0, 4),
+                    color: AppColor.blackColor.withOpacity(0.25),
+                    blurRadius: 4,
+                  ),
                 ],
               ),
               child: Center(
@@ -58,13 +60,19 @@ class _ClassViewState extends ConsumerState<ClassView> {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final classroom = data[index];
-                      return CustomClassroomCard(
-                        nameClassroom: classroom.name,
-                        description: classroom.description,
-                        time: classroom.time,
-                        day: classroom.day,
-                        room: classroom.room,
-                        finalScore: classroom.finalScore ?? 0,
+                      return GestureDetector(
+                        onTap: () {
+                          //coba agar bisa parsing data id
+                          context.go('/classroom/${classroom.id}');
+                        },
+                        child: CustomClassroomCard(
+                          nameClassroom: classroom.name,
+                          description: classroom.description,
+                          time: classroom.time,
+                          day: classroom.day,
+                          room: classroom.room,
+                          finalScore: classroom.finalScore ?? 0,
+                        ),
                       );
                     },
                     itemCount: data.length,
