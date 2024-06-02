@@ -26,6 +26,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
   Widget build(BuildContext context) {
     final allCourses = ref.watch(AllCourses.allCoursesProvider);
     final userProfile = ref.read(UserProfileName.profileProvider);
+    final listCourse = ref.read(Course.coursesProvider);
     // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     // ignore: non_constant_identifier_names
@@ -129,17 +130,31 @@ class _HomeViewState extends ConsumerState<HomeView> {
               ),
               const SizedBox(height: 15),
               GestureDetector(
-                onTap: () => context.go("/classroom/moduldashboard"),
+                onTap: () =>
+                    context.push("/classroom/moduldashboard/modullist"),
                 child: SizedBox(
-                  height: 250,
-                  child: ListView(
-                    padding: const EdgeInsets.only(top: 0),
-                    children: const [
-                      CustomCourseCard(),
-                      CustomCourseCard(),
-                    ],
-                  ),
-                ),
+                    height: MediaQueryHeight * 0.32,
+                    child: listCourse.when(
+                      data: (data) => ListView.builder(
+                        padding: const EdgeInsets.only(top: 0),
+                        scrollDirection: Axis.vertical,
+                        itemBuilder: (context, index) {
+                          final courses = data[index];
+                          return CustomCourseCard(
+                            title: courses.title,
+                            descriptionCourse: courses.description,
+                            progress: courses.courseProgress,
+                          );
+                        },
+                        itemCount: data.length,
+                      ),
+                      error: (error, stackTrace) => Center(
+                        child: Text('Error: $error'),
+                      ),
+                      loading: () => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    )),
               ),
               const SizedBox(height: 15),
               Text(

@@ -1,3 +1,4 @@
+import 'package:bengkel_koding_mobile/features/home/controller/controller_home.dart';
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_dropdown_information.dart';
@@ -5,9 +6,10 @@ import 'package:bengkel_koding_mobile/helper/app_card_your_courses.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class ClassModulDashboardView extends StatefulWidget {
+class ClassModulDashboardView extends ConsumerStatefulWidget {
   const ClassModulDashboardView({super.key});
 
   @override
@@ -15,7 +17,8 @@ class ClassModulDashboardView extends StatefulWidget {
       _ClassModulDashboardViewState();
 }
 
-class _ClassModulDashboardViewState extends State<ClassModulDashboardView> {
+class _ClassModulDashboardViewState
+    extends ConsumerState<ClassModulDashboardView> {
   String _selectedButton = '/classroom/moduldashboard';
 
   void _navigateToPage(String page) {
@@ -27,6 +30,7 @@ class _ClassModulDashboardViewState extends State<ClassModulDashboardView> {
 
   @override
   Widget build(BuildContext context) {
+    final listCourse = ref.read(Course.coursesProvider);
     final MediaQueryWidth = MediaQuery.of(context).size.width;
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
@@ -197,16 +201,28 @@ class _ClassModulDashboardViewState extends State<ClassModulDashboardView> {
                             onTap: () => context
                                 .push("/classroom/moduldashboard/modullist"),
                             child: SizedBox(
-                              height: MediaQueryHeight * 0.32,
-                              child: ListView.builder(
-                                padding: const EdgeInsets.only(top: 0),
-                                scrollDirection: Axis.vertical,
-                                itemBuilder: (context, index) {
-                                  return const CustomCourseCard();
-                                },
-                                itemCount: 3,
-                              ),
-                            ),
+                                height: MediaQueryHeight * 0.32,
+                                child: listCourse.when(
+                                  data: (data) => ListView.builder(
+                                    padding: const EdgeInsets.only(top: 0),
+                                    scrollDirection: Axis.vertical,
+                                    itemBuilder: (context, index) {
+                                      final courses = data[index];
+                                      return  CustomCourseCard(
+                                        title: courses.title,
+                                        descriptionCourse: courses.description,
+                                        progress: courses.courseProgress,
+                                      );
+                                    },
+                                    itemCount: data.length,
+                                  ),
+                                  error: (error, stackTrace) => Center(
+                                    child: Text('Error: $error'),
+                                  ),
+                                  loading: () => const Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                )),
                           ),
                           const SizedBox(height: 20),
                         ],

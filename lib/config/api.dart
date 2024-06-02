@@ -17,4 +17,5 @@ class Api {
       '$baseUrl/api/v1/mobile/student/classroom/1/classmates';
   static const listInformation =
       '$baseUrl/api/v1/mobile/student/classroom/1/informations';
+  static const listCourse = '$baseUrl/api/v1/mobile/student/classroom/1/courses';
 }

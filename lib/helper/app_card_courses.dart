@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 
 class CustomCourseCard extends StatelessWidget {
-  const CustomCourseCard({super.key});
+  String? title = "";
+  String? descriptionCourse = "";
+  String? progress = "";
+  CustomCourseCard({
+    super.key,
+    required this.title,
+    required this.descriptionCourse,
+    required this.progress,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,25 +41,27 @@ class CustomCourseCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Beginer',
+                  title!,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: AppColor.secondPrimaryColor,
                   ),
                 ),
-                const Text(
-                  'Flutter adalah framework yang....',
+                Text(
+                  descriptionCourse!,
                   style: TextStyle(
                     fontSize: 10,
                     color: Colors.black,
                   ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '50%',
+                      progress!,
                       style: TextStyle(
                         fontSize: 10,
                         color: AppColor.blackColor,

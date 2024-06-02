@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:bengkel_koding_mobile/model/model_course.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -37,6 +38,45 @@ class AllCourses {
     if (token != null) {
       final allCourses = AllCourses();
       return allCourses.getAllCourses(token);
+    } else {
+      throw Exception('User is not logged in');
+    }
+  });
+  static Future<String?> _retrieveToken() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('token');
+  }
+}
+class Course {
+  Future<List<CourseModel>> getCourses(String token) async {
+    try {
+      final response = await http.get(
+        Uri.parse(Api.listCourse),
+        headers: {
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = json.decode(response.body);
+        List<dynamic> data = responseData['data'];
+        print(data);
+        return data.map((json) => CourseModel.fromJson(json)).toList();
+      } else {
+        throw Exception(
+            'Failed to load courses. Status code: ${response.statusCode}. Error message: ${response.reasonPhrase}');
+      }
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  static final coursesProvider =
+      FutureProvider<List<CourseModel>>((ref) async {
+    final token = await _retrieveToken();
+    if (token != null) {
+      final listCoursew = Course();
+      return listCoursew.getCourses(token);
     } else {
       throw Exception('User is not logged in');
     }
