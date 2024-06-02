@@ -1,21 +1,33 @@
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_courses.dart';
 import 'package:bengkel_koding_mobile/helper/app_card_dropdown_information.dart';
-
 import 'package:bengkel_koding_mobile/helper/app_card_your_courses.dart';
 import 'package:bengkel_koding_mobile/utils/app_colors_palette.dart';
 import 'package:bengkel_koding_mobile/utils/app_font_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ClassModulDashboardView extends StatelessWidget {
+class ClassModulDashboardView extends StatefulWidget {
   const ClassModulDashboardView({super.key});
 
   @override
+  _ClassModulDashboardViewState createState() =>
+      _ClassModulDashboardViewState();
+}
+
+class _ClassModulDashboardViewState extends State<ClassModulDashboardView> {
+  String _selectedButton = '/classroom/moduldashboard';
+
+  void _navigateToPage(String page) {
+    setState(() {
+      _selectedButton = page;
+    });
+    context.push(page);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // ignore: non_constant_identifier_names
     final MediaQueryWidth = MediaQuery.of(context).size.width;
-    // ignore: non_constant_identifier_names
     final MediaQueryHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
@@ -73,14 +85,17 @@ class ClassModulDashboardView extends StatelessWidget {
                                   RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(7.0),
                                     side: BorderSide(
-                                      color: AppColor.yellowColor,
+                                      color: _selectedButton ==
+                                              '/classroom/moduldashboard'
+                                          ? AppColor.yellowColor
+                                          : Colors.transparent,
                                       width: 4.0,
                                     ),
                                   ),
                                 ),
                               ),
                               onPressed: () {
-                                context.push("/classroom/moduldashboard");
+                                _navigateToPage('/classroom/moduldashboard');
                               },
                               child: Text(
                                 'Modul Kelas',
@@ -119,14 +134,17 @@ class ClassModulDashboardView extends StatelessWidget {
                                   RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(7.0),
                                     side: BorderSide(
-                                      color: AppColor.yellowColor,
+                                      color: _selectedButton ==
+                                              '/classroom/strukturclassroom'
+                                          ? AppColor.yellowColor
+                                          : Colors.transparent,
                                       width: 4.0,
                                     ),
                                   ),
                                 ),
                               ),
                               onPressed: () {
-                                context.push("/classroom/strukturclassroom");
+                                _navigateToPage('/classroom/strukturclassroom');
                               },
                               child: Text(
                                 'Struktur Kelas',

@@ -1,5 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:bengkel_koding_mobile/helper/app_appbar.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_lecture.dart';
 import 'package:bengkel_koding_mobile/helper/app_listview_student.dart';
@@ -10,8 +8,22 @@ import 'package:go_router/go_router.dart';
 
 import '../../../helper/app_card_your_courses.dart';
 
-class ClassStrukturView extends StatelessWidget {
+class ClassStrukturView extends StatefulWidget {
   const ClassStrukturView({super.key});
+
+  @override
+  _ClassStrukturViewState createState() => _ClassStrukturViewState();
+}
+
+class _ClassStrukturViewState extends State<ClassStrukturView> {
+  String _selectedButton = '/classroom/strukturclassroom';
+
+  void _navigateToPage(String page) {
+    setState(() {
+      _selectedButton = page;
+    });
+    context.push(page);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,14 +83,17 @@ class ClassStrukturView extends StatelessWidget {
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(7.0),
                                   side: BorderSide(
-                                    color: AppColor.yellowColor,
+                                    color: _selectedButton ==
+                                            '/classroom/moduldashboard'
+                                        ? AppColor.yellowColor
+                                        : Colors.transparent,
                                     width: 4.0,
                                   ),
                                 ),
                               ),
                             ),
                             onPressed: () {
-                              context.push("/classroom/moduldashboard");
+                              _navigateToPage('/classroom/moduldashboard');
                             },
                             child: Text(
                               'Modul Kelas',
@@ -115,14 +130,17 @@ class ClassStrukturView extends StatelessWidget {
                                 RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(7.0),
                                   side: BorderSide(
-                                    color: AppColor.yellowColor,
+                                    color: _selectedButton ==
+                                            '/classroom/strukturclassroom'
+                                        ? AppColor.yellowColor
+                                        : Colors.transparent,
                                     width: 4.0,
                                   ),
                                 ),
                               ),
                             ),
                             onPressed: () {
-                              context.push("/classroom/strukturclassroom");
+                              _navigateToPage('/classroom/strukturclassroom');
                             },
                             child: Text(
                               'Struktur Kelas',
